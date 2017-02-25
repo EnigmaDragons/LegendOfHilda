@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using System;
+using System.Linq;
 using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
