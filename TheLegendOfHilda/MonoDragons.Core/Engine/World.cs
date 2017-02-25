@@ -70,6 +70,7 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
         {
+            // SCALING HACK
             var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width * 3, sourceRectangle.Height * 3);
             _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White);
         }
