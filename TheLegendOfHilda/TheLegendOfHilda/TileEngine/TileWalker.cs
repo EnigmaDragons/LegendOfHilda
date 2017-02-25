@@ -7,22 +7,22 @@ namespace TheLegendOfHilda.TileEngine
     public class TileWalker
     {
         private readonly int _xStart;
-        private readonly int _xEnd;
+        private readonly int _xNum;
         private readonly int _yStart;
-        private readonly int _yEnd;
+        private readonly int _yNum;
 
-        public TileWalker(int xStart, int xEnd, int yStart, int yEnd)
+        public TileWalker(int xStart, int xNum, int yStart, int yNum)
         {
             _xStart = xStart;
-            _xEnd = xEnd;
+            _xNum = xNum;
             _yStart = yStart;
-            _yEnd = yEnd;
+            _yNum = yNum;
         }
 
         private IEnumerable<TileLocation> GetTiles()
         {
-            return Enumerable.Range(_xStart, _xEnd)
-                .SelectMany(x => Enumerable.Range(_yStart, _yEnd)
+            return Enumerable.Range(_xStart, _xNum)
+                .SelectMany(x => Enumerable.Range(_yStart, _yNum)
                     .Select(y => new TileLocation(x, y)));
         }
 

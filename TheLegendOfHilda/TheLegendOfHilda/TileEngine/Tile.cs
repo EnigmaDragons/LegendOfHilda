@@ -9,6 +9,7 @@ namespace TheLegendOfHilda.TileEngine
         public int Layer => 1;
 
         public TileLocation Location { get; }
+
         private readonly string _textureName;
         
         public Tile(string textureName, TileLocation location)
