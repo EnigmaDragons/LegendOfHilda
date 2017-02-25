@@ -50,6 +50,7 @@
     <Compile Include="Scenes\TimTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
     <Compile Include="Obstacles\Door.cs" />
+    <Compile Include="Scenes\TitleScene.cs" />
     <Compile Include="TileEngine\ITileLayer.cs" />
     <Compile Include="TileEngine\Obj.cs" />
     <Compile Include="TileEngine\Room.cs" />
