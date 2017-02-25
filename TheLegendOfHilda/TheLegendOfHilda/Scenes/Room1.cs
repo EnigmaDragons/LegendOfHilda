@@ -2,6 +2,7 @@
 using MonoDragons.Core.Engine;
 using System;
 using System.Linq;
+using TheLegendOfHilda.Obstacles;
 using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
@@ -13,17 +14,12 @@ namespace TheLegendOfHilda.Scenes
         public void Init()
         {
             _room = new Room();
-            _room.Add(new TileWalker(1, 15, 1, 15).Get(x => new Tile("tile1", x)));
-            _room.Add(new TileWalker(0, 1, 0, 15).Get(x => new Tile("ext1", x)));
-            _room.Add(new TileWalker(0, 15, 0, 1).Get(x => new Tile("ext1", x)));
-            _room.Add(new TileWalker(15, 1, 0, 15).Get(x => new Tile("ext1", x)));
-            _room.Add(new TileWalker(0, 15, 1, 1).Get(x => new Tile("wall-u", x)));
-            _room.Add(new Tile("dungeonentrance", new TileLocation(5, 11)));
-            _room.Add(new Tile("wallcorner-dl", new TileLocation(0, 11)));
-            _room.Add(new Tile("wallcorner-ul", new TileLocation(0, 0)));
-            _room.Add(new Tile("wallcorner-dr", new TileLocation(12, 11)));
-            _room.Add(new Tile("wallcorner-ur", new TileLocation(12, 0)));
-            _room.Add(new TileWalker(3, 5, 3, 5).Get(x => new Obj("pot", x)));
+            _room.Add(new TileWalker(0, 16, 0, 16).Get(x => new Tile("tile1", x)));
+            _room.Add(new TileWalker(0, 14, 0, 1).Get(x => new Tile("wall", x)));
+            _room.Add(new Tile("dungeonentrance", new TileLocation(5, 12)));
+            _room.Add(new Tile("wallcorner", new TileLocation(0, 0)));
+            _room.Add(new TileWalker(6, 5, 6, 5).Get(x => new Obj("pot", x)));
+            _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0)));
         }
 
         public void Update(TimeSpan delta)

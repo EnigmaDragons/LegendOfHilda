@@ -38,6 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="PlayerStuff\AnimationState.cs" />
+    <Compile Include="PlayerStuff\Player.cs" />
     <Compile Include="Obstacles\Striker.cs" />
     <Compile Include="PlayerControl\Player.cs" />
     <Compile Include="Program.cs" />
@@ -46,6 +48,7 @@
     <Compile Include="Scenes\BrendanTestScene.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
+    <Compile Include="Obstacles\Door.cs" />
     <Compile Include="TileEngine\ITileLayer.cs" />
     <Compile Include="TileEngine\Obj.cs" />
     <Compile Include="TileEngine\Room.cs" />
@@ -80,28 +83,40 @@
     <Content Include="Content\Images\Objects\pot.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Tiles\door-blocked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Tiles\door-locked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Tiles\door-unlocked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Tiles\door-open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Tiles\dungeonentrance.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Tiles\ext1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Tiles\itemplatform.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Tiles\tile1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Tiles\wall-u.png">
+    <Content Include="Content\Images\Tiles\wall.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Tiles\wallcorner-dl.png">
+    <Content Include="Content\Images\Tiles\wallcorner.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Tiles\wallcorner-dr.png">
+    <Content Include="Content\Images\Tiles\walledge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Tiles\wallcorner-ul.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Images\Tiles\wallcorner-ur.png">
+    <Content Include="Content\Images\Tiles\walledgecorner.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
