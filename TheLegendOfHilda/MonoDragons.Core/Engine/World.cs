@@ -63,9 +63,19 @@ namespace MonoDragons.Core.Engine
             _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition);
         }
 
-        public static void Draw(string imageName, Rectangle rectPostion)
+        public static void Draw(string imageName, Rectangle rectPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), rectPostion, Color.White);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), rectPosition, Color.White);
+        }
+
+        public static void DrawRotated(string imageName, Vector2 pixelPosition, float rotation)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition, null, Color.White, rotation, Vector2.Zero, /*Insert scale*/1, SpriteEffects.None, 0);
+        }
+
+        public static void DrawRotated(string imageName, Rectangle rectPosition, float rotation)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPosition, null, null, rotation, /*Insert scale*/ new Vector2(1, 1));
         }
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
