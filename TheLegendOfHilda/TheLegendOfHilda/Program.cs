@@ -1,4 +1,9 @@
-﻿using System;
+﻿using MonoDragons.Core.Engine;
+using System;
+using MonoDragons.Core.Inputs;
+using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+using TheLegendOfHilda.Scenes;
 
 namespace TheLegendOfHilda
 {
@@ -14,8 +19,22 @@ namespace TheLegendOfHilda
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame())
+            using (var game = new MainGame("EnemyPatrolling", new ScreenSize(900, 900), CreateSceneFactory(), CreateKeyboardContoller()))
                 game.Run();
+        }
+
+        private static IController CreateKeyboardContoller()
+        {
+            return new KeyboardController(new Map<Keys, Control>());
+        }
+
+        private static SceneFactory CreateSceneFactory()
+        {
+            return new SceneFactory(new Dictionary<string, Func<IScene>>
+            {
+                { "NateTestScene", () => new NateTestScene() },
+                { "EnemyPatrolling", () => new EnemyPatrolingScene() }
+            });
         }
     }
 #endif
