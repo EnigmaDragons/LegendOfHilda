@@ -19,7 +19,8 @@ namespace TheLegendOfHilda.Scenes
         public void Draw()
         {
             World.DrawBrackgroundColor(Color.Black);
-            World.Draw("Images/Backgrounds/bg 1", Vector2.Zero);
+
+            World.Draw("Images/Backgrounds/bg 1", new Rectangle(0, 0, 512, 288));
             World.Draw("Images/Backgrounds/title1", Vector2.Zero);
         }
     }
