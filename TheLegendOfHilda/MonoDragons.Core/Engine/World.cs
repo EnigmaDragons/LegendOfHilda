@@ -1,11 +1,11 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.UI;
+using System;
 
 namespace MonoDragons.Core.Engine
 {
@@ -82,9 +82,26 @@ namespace MonoDragons.Core.Engine
             _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition, null, Color.White, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
-        public static void Draw(string imageName, Rectangle rectPostion)
+        public static void Draw(string imageName, Rectangle rectPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPostion, null, null, 0, new Vector2(_scale, _scale));
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPosition, null, null, 0, new Vector2(_scale, _scale));
+        }
+
+        public static void DrawRotated(string imageName, Vector2 pixelPosition, float rotation)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition, null, Color.White, rotation, Vector2.Zero, _scale, SpriteEffects.None, 0);
+        }
+
+        public static void DrawRotated(string imageName, Rectangle rectPosition, float rotation)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPosition, null, null, rotation, new Vector2(_scale, _scale));
+        }
+
+        public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
+        {
+            // SCALING HACK
+            var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width * 3, sourceRectangle.Height * 3);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White);
         }
 
         public static void DrawText(string text, Vector2 position, Color color)

@@ -39,6 +39,9 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animation\Animation.cs" />
+    <Compile Include="Animation\CyclingAnimation.cs" />
+    <Compile Include="Animation\BackAndForthAnimation.cs" />
     <Compile Include="Common\EnumerableExtensions.cs" />
     <Compile Include="Common\ISubscription.cs" />
     <Compile Include="Common\ISubject.cs" />
