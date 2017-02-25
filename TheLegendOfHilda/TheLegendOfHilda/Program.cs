@@ -19,7 +19,7 @@ namespace TheLegendOfHilda
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("NateTestScene", new ScreenSize(900, 600), CreateSceneFactory(), CreateKeyboardContoller()))
+            using (var game = new MainGame("TimTestScene", new ScreenSize(900, 600), 5, CreateSceneFactory(), CreateKeyboardContoller()))
                 game.Run();
         }
 
@@ -32,6 +32,7 @@ namespace TheLegendOfHilda
         {
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
+                { "TimTestScene", () => new TimTestScene() },
                 { "NateTestScene", () => new NateTestScene() }
             });
         }

@@ -13,20 +13,39 @@ namespace MonoDragons.Core.Engine
     {
         private static readonly Events _events = new Events();
 
+        private static GraphicsDevice _graphicsDevice;
         private static Game _game;
         private static ContentManager _content;
         private static SpriteBatch _spriteBatch;
         private static INavigation _navigation;
         private static SceneContents _sceneContents;
+        //private static Vector2 _baseResolution;
+        private static float _scale;
+        //private static GraphicsDeviceManager _graphicsManager;
 
-        public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch)
+        public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch, float scale)
         {
+            //_graphicsDevice = graphics;
+            //_graphicsManager = manager;
+            //_baseResolution = baseResolution;
+            _scale = scale;
             _game = game;
+            //_game.Window.AllowUserResizing = true;
+            //_game.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
             _content = game.Content;
             _navigation = navigation;
             _spriteBatch = spriteBatch;
             _sceneContents = new SceneContents(_content);
             DefaultFont.Load(_content);
+        }
+
+        private static void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            //var x = _graphicsDevice.Viewport.Width / _baseResolution.X;
+            //var y = _graphicsDevice.Viewport.Height / _baseResolution.Y;
+            //_scale = x > y ? y : x ;
+            //_graphicsManager.PreferredBackBufferWidth = (int)Math.Round((float)_baseResolution.X * _scale);
+            //_graphicsManager.PreferredBackBufferHeight = (int)Math.Round((float)_baseResolution.Y * _scale);
         }
 
         public static void PlaySound(string soundName)
@@ -60,17 +79,17 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(string imageName, Vector2 pixelPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition, null, Color.White, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
         public static void Draw(string imageName, Rectangle rectPostion)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), rectPostion, Color.White);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPostion, null, null, 0, new Vector2(_scale, _scale));
         }
 
         public static void DrawText(string text, Vector2 position, Color color)
         {
-            _spriteBatch.DrawString(DefaultFont.Font, text, position, color);
+            _spriteBatch.DrawString(DefaultFont.Font, text, position, color, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
         public static void Publish<T>(T payload)
