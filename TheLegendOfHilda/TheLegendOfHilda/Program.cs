@@ -25,7 +25,11 @@ namespace TheLegendOfHilda
 
         private static IController CreateKeyboardContoller()
         {
-            return new KeyboardController(new Map<Keys, Control>());
+            return new KeyboardController(new Map<Keys, Control>
+            {
+                { Keys.Escape, Control.Quit },
+                { Keys.Enter, Control.Start }
+            });
         }
 
         private static SceneFactory CreateSceneFactory()
@@ -37,6 +41,8 @@ namespace TheLegendOfHilda
                 { "NateTestScene", () => new NateTestScene() },
                 { "EnemyPatrolling", () => new EnemyPatrolingScene() },
                 { "BrendanTestScene", () => new BrendanTestScene() },
+                { "Title", () => new TitleScene() },
+                { "GiovanniTestScene", () => new GiovanniTestScene() },
                 { "Room1", () => new Room1() }
             });
         }
