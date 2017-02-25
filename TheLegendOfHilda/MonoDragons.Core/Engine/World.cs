@@ -1,11 +1,11 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.UI;
+using System;
 
 namespace MonoDragons.Core.Engine
 {
@@ -66,6 +66,12 @@ namespace MonoDragons.Core.Engine
         public static void Draw(string imageName, Rectangle rectPostion)
         {
             _spriteBatch.Draw(Load<Texture2D>(imageName), rectPostion, Color.White);
+        }
+
+        public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
+        {
+            var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width * 3, sourceRectangle.Height * 3);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White);
         }
 
         public static void DrawText(string text, Vector2 position, Color color)
