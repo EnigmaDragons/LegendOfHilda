@@ -13,15 +13,18 @@ namespace MonoDragons.Core.Engine
     {
         private static readonly Events _events = new Events();
 
+        private static GraphicsDevice _graphicsDevice;
         private static Game _game;
         private static ContentManager _content;
         private static SpriteBatch _spriteBatch;
         private static INavigation _navigation;
         private static SceneContents _sceneContents;
         private static Texture2D _rectTexture;
+        private static float _scale;
 
-        public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch)
+        public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch, float scale)
         {
+            _scale = scale;
             _game = game;
             _content = game.Content;
             _navigation = navigation;
@@ -37,7 +40,7 @@ namespace MonoDragons.Core.Engine
             var data = new Color[1];
             data[0] = Color.White;
             _rectTexture.SetData(data);
-        }
+		}
 
         public static void PlaySound(string soundName)
         {
@@ -70,12 +73,32 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(string imageName, Vector2 pixelPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), ScaleVector(pixelPosition.X, pixelPosition.Y), null, Color.White, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
-        public static void Draw(string imageName, Rectangle rectPostion)
+        public static void Draw(string imageName, Rectangle rectPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), rectPostion, Color.White);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null,
+                new Rectangle(ScalePoint(rectPosition.X, rectPosition.Y), ScalePoint(rectPosition.Width, rectPosition.Height)),
+                null, null, 0, new Vector2(_scale, _scale));
+        }
+
+        public static void DrawRotated(string imageName, Vector2 pixelPosition, float rotation)
+        {
+            var texture = Load<Texture2D>(imageName);
+            DrawRotated(imageName, new Rectangle((int)pixelPosition.X, (int)pixelPosition.Y, texture.Width, texture.Height), rotation);
+        }
+
+        public static void DrawRotated(string imageName, Rectangle rectPosition, float rotation)
+        {
+            var origin = new Vector2(16, 16);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), 
+                null, 
+                new Rectangle(ScalePoint(rectPosition.X + origin.X, rectPosition.Y + origin.Y), ScalePoint(rectPosition.Width, rectPosition.Height)), 
+                null, 
+                origin, 
+                rotation, 
+                /*Insert scale*/ new Vector2(_scale, _scale));
         }
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
@@ -91,7 +114,7 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawText(string text, Vector2 position, Color color)
         {
-            _spriteBatch.DrawString(DefaultFont.Font, text, position, color);
+            _spriteBatch.DrawString(DefaultFont.Font, text, ScaleVector(position.X, position.Y), color, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
         public static void DrawRectangle(Rectangle rectangle, Color color)
@@ -113,6 +136,16 @@ namespace MonoDragons.Core.Engine
         public static void Unsubscribe(object owner)
         {
             _events.Unsubscribe(owner);
+        }
+
+        private static Vector2 ScaleVector(float x, float y)
+        {
+            return new Vector2(x * _scale, y * _scale);
+        }
+
+        private static Point ScalePoint(float x, float y)
+        {
+            return new Point((int)Math.Round(x * _scale), (int)Math.Round(y * _scale));
         }
     }
 }

@@ -9,12 +9,16 @@ namespace MonoDragons.Core.Engine
         private readonly string _startingViewName;
         private readonly SceneFactory _sceneFactory;
         private readonly IController _controller;
+        private Vector2 _baseResolution;
+        private float _scale;
+        //private GraphicsDeviceManager _graphicsManager;
 
         private SpriteBatch _sprites;
         private IScene _currentScene;
 
-        public MainGame(string startingViewName, ScreenSize screenSize, SceneFactory sceneFactory, IController controller)
+        public MainGame(string startingViewName, ScreenSize screenSize, float scale , SceneFactory sceneFactory, IController controller)
         {
+            _scale = scale;
             screenSize.Apply(new GraphicsDeviceManager(this));
             Content.RootDirectory = "Content";
             _startingViewName = startingViewName;
@@ -24,11 +28,12 @@ namespace MonoDragons.Core.Engine
 
         protected override void Initialize()
         {
+            _baseResolution = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             IsMouseVisible = true;
             _sprites = new SpriteBatch(GraphicsDevice);
             Hack.TheGame = this;
             Input.SetController(_controller);
-            World.Init(this, this, _sprites);
+            World.Init(this, this, _sprites, _scale);
             base.Initialize();
         }
 

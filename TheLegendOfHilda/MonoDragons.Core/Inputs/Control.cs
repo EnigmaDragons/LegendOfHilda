@@ -6,6 +6,8 @@
         B,
         X,
         Y,
-        Select
+        Select,
+        Quit,
+        Start,
     }
 }
