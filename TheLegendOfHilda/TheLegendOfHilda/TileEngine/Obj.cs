@@ -4,8 +4,9 @@ using MonoDragons.Core.Engine;
 
 namespace TheLegendOfHilda.TileEngine
 {
-    public class Obj
+    public class Obj : ITileLayer
     {
+        public int Layer => 2;
         public TileLocation Location { get; }
         private readonly string _textureName;
 
