@@ -5,16 +5,15 @@ using System.Collections.Generic;
 
 namespace MonoDragons.Core.Animation
 {
-    public class BackAndForthAnimation : Animation
+    public class CyclingAnimation : Animation
     {
         string texture;
         List<Rectangle> frames;
         int currentFrame = 0;
         double secondsPerFrame;
         double currentSeconds = 0;
-        int currentFrameDirection = 1;
 
-        public BackAndForthAnimation(string texture, List<Rectangle> frames, double secondsPerFrame)
+        public CyclingAnimation(string texture, List<Rectangle> frames, double secondsPerFrame)
         {
             this.texture = texture;
             this.frames = frames;
@@ -24,14 +23,11 @@ namespace MonoDragons.Core.Animation
         public void Update(TimeSpan deltaTime)
         {
             currentSeconds += deltaTime.TotalSeconds;
-
-            while (currentSeconds > secondsPerFrame)
+            while(currentSeconds > secondsPerFrame)
             {
                 currentSeconds -= secondsPerFrame;
-                currentFrame += currentFrameDirection;
-
-                if(currentFrame == frames.Count - 1 || currentFrame == 0)
-                    currentFrameDirection *= -1;
+                currentFrame++;
+                currentFrame %= frames.Count;
             }
         }
 

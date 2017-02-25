@@ -38,6 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="PlayerStuff\AnimationState.cs" />
+    <Compile Include="PlayerStuff\Player.cs" />
     <Compile Include="Obstacles\Striker.cs" />
     <Compile Include="PlayerControl\Player.cs" />
     <Compile Include="Program.cs" />
@@ -46,11 +48,13 @@
     <Compile Include="Scenes\BrendanTestScene.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
+    <Compile Include="TileEngine\ITileLayer.cs" />
     <Compile Include="TileEngine\Obj.cs" />
     <Compile Include="TileEngine\Room.cs" />
     <Compile Include="TileEngine\Tile.cs" />
     <Compile Include="TileEngine\TileLocation.cs" />
     <Compile Include="TileEngine\TileSize.cs" />
+    <Compile Include="TileEngine\TileWalker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -70,7 +74,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Link.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Objects\pot.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

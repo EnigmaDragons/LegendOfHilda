@@ -13,9 +13,9 @@ namespace TheLegendOfHilda.Scenes
         public void Init()
         {
             _room = new Room();
-            _room.Add(Enumerable.Range(0, 12).SelectMany(x => Enumerable.Range(0, 12).Select(y => new Tile("tile1", new TileLocation(x, y)))));
-            _room.Add(new Tile("dungeonentrance", new TileLocation(5, 11)));
-            _room.Add(Enumerable.Range(3, 5).SelectMany(x => Enumerable.Range(3, 5).Select(y => new Obj("pot", new TileLocation(x, y)))));
+            _room.Add(new TileWalker(1, 13, 1, 13).Get(x => new Tile("tile1", x))); 
+            _room.Add(new Tile("dungeonentrance", new TileLocation(5, 12)));
+            _room.Add(new TileWalker(3, 5, 3, 5).Get(x => new Obj("pot", x)));
         }
 
         public void Update(TimeSpan delta)
