@@ -42,11 +42,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
+    <Compile Include="TileEngine\ITileLayer.cs" />
     <Compile Include="TileEngine\Obj.cs" />
     <Compile Include="TileEngine\Room.cs" />
+    <Compile Include="TileEngine\RoomExtensions.cs" />
     <Compile Include="TileEngine\Tile.cs" />
     <Compile Include="TileEngine\TileLocation.cs" />
     <Compile Include="TileEngine\TileSize.cs" />
+    <Compile Include="TileEngine\TileWalker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
