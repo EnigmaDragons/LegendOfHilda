@@ -39,6 +39,7 @@ namespace MonoDragons.Core.Animation
         public void Reset()
         {
             currentFrame = 0;
+            currentSeconds = 0;
         }
     }
 }

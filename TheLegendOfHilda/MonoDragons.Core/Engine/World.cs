@@ -18,6 +18,7 @@ namespace MonoDragons.Core.Engine
         private static SpriteBatch _spriteBatch;
         private static INavigation _navigation;
         private static SceneContents _sceneContents;
+        private static Texture2D _rectTexture;
 
         public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch)
         {
@@ -25,8 +26,17 @@ namespace MonoDragons.Core.Engine
             _content = game.Content;
             _navigation = navigation;
             _spriteBatch = spriteBatch;
+            SetupRectangleTexture(game.GraphicsDevice);
             _sceneContents = new SceneContents(_content);
             DefaultFont.Load(_content);
+        }
+
+        private static void SetupRectangleTexture(GraphicsDevice device)
+        {
+            _rectTexture = new Texture2D(device, 1, 1);
+            var data = new Color[1];
+            data[0] = Color.White;
+            _rectTexture.SetData(data);
         }
 
         public static void PlaySound(string soundName)
@@ -53,7 +63,7 @@ namespace MonoDragons.Core.Engine
             oldSceneContents.Dispose();
         }
 
-        public static void DrawBrackgroundColor(Color color)
+        public static void DrawBackgroundColor(Color color)
         {
             _game.GraphicsDevice.Clear(color);
         }
@@ -70,14 +80,23 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
         {
-            // SCALING HACK
-            var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width * 3, sourceRectangle.Height * 3);
-            _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), position, sourceRectangle, Color.White);
+        }
+
+        public static void DrawFlipped(string imageName, Vector2 position, Rectangle sourceRectangle)
+        {
+            var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width, sourceRectangle.Height);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White, 0.0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
         }
 
         public static void DrawText(string text, Vector2 position, Color color)
         {
             _spriteBatch.DrawString(DefaultFont.Font, text, position, color);
+        }
+
+        public static void DrawRectangle(Rectangle rectangle, Color color)
+        {
+            _spriteBatch.Draw(_rectTexture, rectangle, color);
         }
 
         public static void Publish<T>(T payload)
