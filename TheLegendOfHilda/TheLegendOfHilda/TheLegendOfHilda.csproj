@@ -73,6 +73,9 @@
     <Content Include="Content\Images\Backgrounds\bg 1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Backgrounds\title1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Temp\BackgroundPlaceholder.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
