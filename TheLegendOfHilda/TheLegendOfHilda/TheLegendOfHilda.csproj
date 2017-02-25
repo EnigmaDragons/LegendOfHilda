@@ -47,6 +47,7 @@
     <Compile Include="Scenes\EnemyPatrolingScene.cs" />
     <Compile Include="Scenes\BrendanTestScene.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
+    <Compile Include="Scenes\TimTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
     <Compile Include="Obstacles\Door.cs" />
     <Compile Include="TileEngine\ITileLayer.cs" />
@@ -66,6 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\Objects\heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Backgrounds\bg 1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Temp\BackgroundPlaceholder.jpg">
