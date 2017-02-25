@@ -42,9 +42,8 @@ namespace TheLegendOfHilda.Obstacles
             }
             if (_isPatroling) 
                 Patrol(delta);
-            if (_isChasing)
-                Chase(delta);
-                
+            //if (_isChasing)
+                //Chase(delta);  
         }
 
         public void Draw(Vector2 offset)
@@ -59,15 +58,17 @@ namespace TheLegendOfHilda.Obstacles
             _targetNode = _patrolPath[_index];
 
             var distance = (float)MoveSpeed*(float)delta.TotalMilliseconds;
-            var direction = _targetNode - _location;
-            direction.Normalize(); 
-            _location = _location + distance * direction;
-            _position = new Rectangle((int)(_location.X - 16), (int)(_location.Y - 16), _position.Width, _position.Height); 
+            HeadTowards(distance, _targetNode);
         }
 
         public void Chase(TimeSpan delta)
         {
             var distance = (float)MoveSpeed * (float)delta.TotalMilliseconds;
+            HeadTowards(distance, _playerRef.Location);
+        }
+
+        public void HeadTowards(float distance, Vector2 target)
+        {
             var direction = _playerRef.Location - _location;
             direction.Normalize();
             _location = _location + distance * direction;
