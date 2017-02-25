@@ -1,0 +1,19 @@
+﻿using System;
+
+namespace TheLegendOfHilda.TileEngine
+{
+    public struct Rotation
+    {
+        public static Rotation Up = new Rotation(0);
+        public static Rotation Right = new Rotation((float)(Math.PI / 2));
+        public static Rotation Down = new Rotation((float)Math.PI);
+        public static Rotation Left = new Rotation((float)(Math.PI * 1.5));
+
+        public float Value { get; }
+
+        public Rotation(float value)
+        {
+            Value = value;
+        }
+    }
+}
