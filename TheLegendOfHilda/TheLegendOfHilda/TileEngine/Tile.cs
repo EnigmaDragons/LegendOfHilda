@@ -10,11 +10,13 @@ namespace TheLegendOfHilda.TileEngine
 
         public TileLocation Location { get; }
         private readonly string _textureName;
+        private readonly Rotation _rotation;
         
-        public Tile(string textureName, TileLocation location)
+        public Tile(string textureName, TileLocation location, Rotation rotation)
         {
             Location = location;
             _textureName = "Images/Tiles/" + textureName;
+            _rotation = rotation;
         }
 
         public void Update(TimeSpan delta)
@@ -23,7 +25,7 @@ namespace TheLegendOfHilda.TileEngine
 
         public void Draw(Vector2 offset)
         {
-            World.Draw(_textureName, Location.Position + offset);
+            World.DrawRotated(_textureName, Location.Position + offset, _rotation.Value);
         }
     }
 }

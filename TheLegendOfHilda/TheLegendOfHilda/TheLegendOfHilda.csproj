@@ -51,6 +51,7 @@
     <Compile Include="TileEngine\ITileLayer.cs" />
     <Compile Include="TileEngine\Obj.cs" />
     <Compile Include="TileEngine\Room.cs" />
+    <Compile Include="TileEngine\Rotation.cs" />
     <Compile Include="TileEngine\Tile.cs" />
     <Compile Include="TileEngine\TileLocation.cs" />
     <Compile Include="TileEngine\TileSize.cs" />
