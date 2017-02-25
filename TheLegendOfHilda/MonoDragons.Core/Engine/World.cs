@@ -79,22 +79,25 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(string imageName, Vector2 pixelPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition, null, Color.White, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), ScaleVector(pixelPosition.X, pixelPosition.Y), null, Color.White, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
         public static void Draw(string imageName, Rectangle rectPosition)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPosition, null, null, 0, new Vector2(_scale, _scale));
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null,
+                new Rectangle(ScalePoint(rectPosition.X, rectPosition.Y), ScalePoint(rectPosition.Width, rectPosition.Height)),
+                null, null, 0, new Vector2(_scale, _scale));
         }
 
         public static void DrawRotated(string imageName, Vector2 pixelPosition, float rotation)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), pixelPosition, null, Color.White, rotation, Vector2.Zero, _scale, SpriteEffects.None, 0);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), ScaleVector(pixelPosition.X, pixelPosition.Y), null, Color.White, rotation, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
         public static void DrawRotated(string imageName, Rectangle rectPosition, float rotation)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), null, rectPosition, null, null, rotation, new Vector2(_scale, _scale));
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, new Rectangle(ScalePoint(rectPosition.X, rectPosition.Y), ScalePoint(rectPosition.Width, rectPosition.Height)), null, null, rotation, new Vector2(_scale, _scale));
+            //public void Draw(Texture2D texture, Vector2? position = default(Vector2?), Rectangle? destinationRectangle = default(Rectangle?), Rectangle? sourceRectangle = default(Rectangle?), Vector2? origin = default(Vector2?), float rotation = 0, Vector2? scale = default(Vector2?), Color? color = default(Color?), SpriteEffects effects = SpriteEffects.None, float layerDepth = 0);
         }
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
@@ -106,7 +109,7 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawText(string text, Vector2 position, Color color)
         {
-            _spriteBatch.DrawString(DefaultFont.Font, text, position, color, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(DefaultFont.Font, text, ScaleVector(position.X, position.Y), color, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
 
         public static void Publish<T>(T payload)
@@ -123,6 +126,16 @@ namespace MonoDragons.Core.Engine
         public static void Unsubscribe(object owner)
         {
             _events.Unsubscribe(owner);
+        }
+
+        private static Vector2 ScaleVector(float x, float y)
+        {
+            return new Vector2(x * _scale, y * _scale);
+        }
+
+        private static Point ScalePoint(float x, float y)
+        {
+            return new Point((int)Math.Round(x * _scale), (int)Math.Round(y * _scale));
         }
     }
 }
