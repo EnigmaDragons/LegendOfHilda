@@ -13,7 +13,7 @@ namespace TheLegendOfHilda.Scenes
 
         public void Init()
         {
-            player = new Player();
+            player = new Player(new Vector2(100, 100));
         }
 
         public void Update(TimeSpan delta)
