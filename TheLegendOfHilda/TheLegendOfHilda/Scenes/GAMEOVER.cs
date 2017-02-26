@@ -1,18 +1,18 @@
-﻿using System;
+﻿using MonoDragons.Core.Engine;
+using System;
 using Microsoft.Xna.Framework;
-using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class TitleScene : IScene
+    public class GameOver : IScene
     {
         private bool _shouldShowEnter;
         private double _millis;
 
         public void Init()
         {
-            Input.On(Control.Start, () => World.NavigateToScene("EntranceRoom"));
+            Input.On(Control.Start, () => World.NavigateToScene("Title"));
         }
 
         public void Update(TimeSpan delta)
@@ -28,10 +28,9 @@ namespace TheLegendOfHilda.Scenes
         public void Draw()
         {
             World.DrawBackgroundColor(Color.Black);
-            World.DrawCentered("Images/Backgrounds/bg 1", new Vector2(256, 144) * new Vector2(1.6f));
-            World.DrawCentered("Images/Backgrounds/title1");
+            World.DrawCentered("Images/Backgrounds/gameover1");
 
-            if (_shouldShowEnter)            
+            if (_shouldShowEnter)
                 World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
         }
     }

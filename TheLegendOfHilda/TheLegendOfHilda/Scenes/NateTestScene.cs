@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Ecstasy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,16 @@ namespace TheLegendOfHilda.Scenes
 {
     class NateTestScene : IScene
     {
+        Engine _engine;
         public void Init()
         {
-            /// setup before action (ASSETS)
-            /// 
+            // setup before action (ASSETS)
+            _engine = new Engine();
         }
 
         public void Update(TimeSpan delta)
         {
-            // do the calcultions
-
+            _engine.Tick(delta);
         }
 
         public void Draw()
