@@ -11,7 +11,7 @@ namespace TheLegendOfHilda.Obstacles
         private readonly Player _player;
 
         public PitCorner(Rotation rotation, TileLocation loc, Player player)
-            : base(rotation, loc.Through(loc.Plus(4, 4)))
+            : base(rotation, loc.Through(loc.Plus(4, 4, rotation)))
         {
             _player = player;
         }

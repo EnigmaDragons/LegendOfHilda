@@ -99,14 +99,46 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawRotated(string imageName, Rectangle rectPosition, float rotation)
         {
-            var origin = new Vector2(16, 16);
+            var x = 0;
+            if (rotation == Rotation.Right.Value)
+            {
+                x = rectPosition.Height / 2;
+            }
+            else if (rotation == Rotation.Down.Value)
+            {
+                x = rectPosition.Width / 2;
+            }
+            else if (rotation == Rotation.Left.Value)
+            {
+                //x = rectPosition.Height / 4;
+            }
+
+            var y = 0;
+            if (rotation == Rotation.Right.Value)
+            {
+                y = x;
+            }
+            else if (rotation == Rotation.Down.Value)
+            {
+                y = rectPosition.Height / 2;
+            }
+            else if (rotation == Rotation.Left.Value)
+            {
+                y = rectPosition.Width / 2;
+                x = y;
+            }
+
+            //var x = rotation == Rotation.Right.Value || rotation == Rotation.Left.Value ? rectPosition.Height / 2 : rotation == Rotation.Down.Value ? rectPosition.Width / 2 : 0;
+            //var y = rotation == Rotation.Right.Value || rotation == Rotation.Left.Value ? rectPosition.Height / 2 : rotation == Rotation.Down.Value ? rectPosition.Width / 2 : 0;
+            var origin = new Vector2(x, y);
+
             _spriteBatch.Draw(Load<Texture2D>(imageName), 
                 null, 
                 new Rectangle(ScalePoint(rectPosition.X + origin.X, rectPosition.Y + origin.Y), ScalePoint(rectPosition.Width, rectPosition.Height)), 
                 null, 
                 origin, 
                 rotation, 
-                /*Insert scale*/ new Vector2(Scale, Scale));
+                new Vector2(Scale, Scale));
         }
 
         public static void DrawCentered(string imageName)
@@ -171,6 +203,26 @@ namespace MonoDragons.Core.Engine
         private static Point ScalePoint(float x, float y)
         {
             return new Point((int)Math.Round(x * Scale), (int)Math.Round(y * Scale));
+        }
+
+        private struct Rotation
+        {
+            public static Rotation Up = new Rotation(0);
+            public static Rotation Right = new Rotation((float)(Math.PI / 2));
+            public static Rotation Down = new Rotation((float)Math.PI);
+            public static Rotation Left = new Rotation((float)(Math.PI * 1.5));
+
+            public float Value { get; }
+
+            public Rotation(float value)
+            {
+                Value = value;
+            }
+
+            public override bool Equals(object obj)
+            {
+                return Math.Abs(Value - ((Rotation)obj).Value) < 0.01;
+            }
         }
     }
 }

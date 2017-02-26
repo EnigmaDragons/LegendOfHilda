@@ -15,5 +15,10 @@ namespace TheLegendOfHilda.TileEngine
         {
             Value = value;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Math.Abs(Value - ((Rotation)obj).Value) < 0.01;
+        }
     }
 }
