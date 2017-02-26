@@ -2,10 +2,6 @@
 using MonoDragons.Core.Engine;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TheLegendOfHilda.Enemies;
 using TheLegendOfHilda.Obstacles;
 using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
@@ -21,6 +17,8 @@ namespace TheLegendOfHilda.Scenes
         public void Init()
         {
             World.PlayMusic("Music/dungeon1");
+
+            _player = new Player(new Vector2(TileSize.Int * 12, TileSize.Int * 7));
 
             _room = new Room();
             _room.Add(new TileWalker(0, 16, 0, 16).Get(x => new Tile("tile1", x, Rotation.Up)));
@@ -47,13 +45,14 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(2, 1, 12, 1).Get(x => new Tile("walledgecorner", x, Rotation.Left)));
 
             _room.Add(new Obj("chest-closed", new TileLocation(2, 7)));
-            _room.Add(new Door(DoorState.Open, new TileLocation(14, 7), Rotation.Right, "MainHallRoom"));
+            _room.Add(new Door(DoorState.Open, new TileLocation(14, 7), Rotation.Right, "MainHallRoom", _player));
 
-            _player = new Player(new Vector2(TileSize.Int * 12, TileSize.Int * 7));
+            
         }
 
         public void Update(TimeSpan delta)
         {
+            _room.Update(delta);
             _player.Update(delta);
             _enemies.ForEach(x => x.Update(delta));
         }

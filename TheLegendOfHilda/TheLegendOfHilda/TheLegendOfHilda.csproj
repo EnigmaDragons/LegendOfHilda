@@ -91,6 +91,7 @@
     <Compile Include="TileEngine\Room.cs" />
     <Compile Include="TileEngine\Rotation.cs" />
     <Compile Include="TileEngine\Tile.cs" />
+    <Compile Include="TileEngine\TileLayerBase.cs" />
     <Compile Include="TileEngine\TileLocation.cs" />
     <Compile Include="TileEngine\TileSize.cs" />
     <Compile Include="TileEngine\TileWalker.cs" />

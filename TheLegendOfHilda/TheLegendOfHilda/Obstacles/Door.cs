@@ -1,35 +1,35 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
+using System.Linq;
 using MonoDragons.Core.Engine;
+using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Obstacles
 {
-    public class Door : ITileLayer
+    public class Door : TileLayerBase
     {
         private DoorState _state;
+        private readonly Player _player;
 
-        public int Layer => 1;
-        public TileLocation Location { get; }
-        public Rotation Rotation;
-        public string ConnectedRoom;
+        public string ConnectedRoom { get; set; }
+        public override int Layer => 1;
 
-        public Door(DoorState state, TileLocation location, Rotation rotation, string connectedRoom)
+        public Door(DoorState state, TileLocation location, Rotation rotation, string connectedRoom, Player player)
+            : base(rotation, location.Through(location.Plus(1, 1)))
         {
             ConnectedRoom = connectedRoom;
-            Rotation = rotation;
-            Location = location;
+            _player = player;
             _state = state;
         }
 
-        public void Update(TimeSpan delta)
+        public override void Update(TimeSpan delta)
         {
+            var playerLoc = new TileLocation(_player.EnemyTrackingPosition);
+            if (Locations.Any(x => x.Equals(playerLoc)))
+                World.NavigateToScene(ConnectedRoom);
         }
 
-        public void Draw(Vector2 offset)
-        {
-            World.DrawRotated("Images/Tiles/door-" + _state.ToString().ToLower(), Location.Position + offset, Rotation.Value);
-        }
+        protected override string TextureName => "Images/Tiles/door-" + _state.ToString().ToLower();
     }
 
     public enum DoorState

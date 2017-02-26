@@ -21,6 +21,7 @@ namespace TheLegendOfHilda.Scenes
         public void Init()
         {
             World.PlayMusic("Music/dungeon1");
+            _player = new Player(new Vector2(TileSize.Int * 2, TileSize.Int * 7));
 
             _room = new Room();
             _room.Add(new TileWalker(0, 14, 0, 16).Get(x => new Tile("tile1", x, Rotation.Up)));
@@ -51,14 +52,14 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(11, 1, 12, 2).Get(x => new Tile("itemplatform", x, Rotation.Up)));
             _room.Add(new TileWalker(11, 1, 12, 2).Get(x => new Obj("pot", x)));
             _room.Add(new Obj("chest-closed", new TileLocation(11, 2)));
-            _room.Add(new Door(DoorState.Open, new TileLocation(0, 7), Rotation.Left, "MainHallRoom"));
-
-            _player = new Player(new Vector2(TileSize.Int * 2, TileSize.Int * 7));
+            _room.Add(new Door(DoorState.Open, new TileLocation(0, 7), Rotation.Left, "MainHallRoom", _player));
+            
             _enemies.Add(new SpearEnemy(_player, new TileLocation(7, 7), new List<TileLocation> { new TileLocation(4, 7), new TileLocation(7, 7) }));
         }
 
         public void Update(TimeSpan delta)
         {
+            _room.Update(delta);
             _player.Update(delta);
             _enemies.ForEach(x => x.Update(delta));
         }
