@@ -13,6 +13,7 @@ namespace TheLegendOfHilda.Scenes
         public void Init()
         {
             Input.On(Control.Start, () => World.NavigateToScene("Title"));
+            World.StopMusic("Music/dungeon1");
         }
 
         public void Update(TimeSpan delta)
