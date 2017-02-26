@@ -38,7 +38,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Enemies\SpearEnemy.cs" />
     <Compile Include="PlayerStuff\AnimationState.cs" />
+    <Compile Include="PlayerStuff\Character.cs" />
     <Compile Include="PlayerStuff\Player.cs" />
     <Compile Include="Obstacles\Striker.cs" />
     <Compile Include="PlayerControl\Player.cs" />
@@ -71,6 +73,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Enemies\striker-d.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\striker-l.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\striker-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\striker-u.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Objects\heart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
