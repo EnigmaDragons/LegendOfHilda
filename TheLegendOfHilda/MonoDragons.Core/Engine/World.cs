@@ -135,11 +135,10 @@ namespace MonoDragons.Core.Engine
             _spriteBatch.Draw(_rectTexture, rectangle, color);
         }
 
-        //public static void DrawCenter(string imageName)
-        //{
-            //var texture = 
-            //var useWidth =
-        //}
+        public static void DrawRotatedOnOrigin(string texture, Vector2 position, Vector2 origin, float rotation)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(texture), position * Scale, null, Color.White, rotation, origin, Scale, SpriteEffects.None, 0.0f);
+        }
 
         public static void Publish<T>(T payload)
         {
