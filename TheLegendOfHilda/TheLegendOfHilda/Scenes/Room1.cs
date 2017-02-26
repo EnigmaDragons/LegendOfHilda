@@ -23,8 +23,9 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new Tile("dungeonentrance", new TileLocation(5, 12), Rotation.Up));
             _room.Add(new Tile("wallcorner", new TileLocation(0, 0), Rotation.Up));
             _room.Add(new TileWalker(6, 5, 6, 5).Get(x => new Obj("pot", x)));
-            _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0), Rotation.Up, "TimTestScene"));
+            _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0), Rotation.Up, "TimTestScene", null));
             _room.Add(new SmallChest(new TileLocation(4, 4)));
+            _room.Add(new Tile("bottomless pit2", new TileLocation(8, 8), Rotation.Up));
         }
 
         public void Update(TimeSpan delta)

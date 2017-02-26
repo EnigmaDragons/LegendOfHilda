@@ -7,7 +7,7 @@ namespace MonoDragons.Core.Physics
 {
     public class ReallyStupidPositionTracker
     {
-        public static ReallyStupidPositionTracker Instance { get; private set; }
+        public static ReallyStupidPositionTracker Instance { get; private set; } = new ReallyStupidPositionTracker();
 
         private HashSet<AxisAlignedBoundingBox> boxes = new HashSet<AxisAlignedBoundingBox>();
 
@@ -23,7 +23,7 @@ namespace MonoDragons.Core.Physics
 
         public bool CanIGoHere(AxisAlignedBoundingBox box)
         {
-            return boxes.Any(x => x.ToRect().Intersects(box.ToRect()));
+            return !boxes.Any(x => x.ToRect().Intersects(box.ToRect()));
         }
     }
 }

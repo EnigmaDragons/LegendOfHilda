@@ -62,10 +62,11 @@ namespace MonoDragons.Core.Engine
 
         public static void NavigateToScene(string sceneName)
         {
-            var oldSceneContents = _sceneContents;
-            _sceneContents = new SceneContents(_content);
+            //TODO: Shared resources between scenes might be a problem for ContentManager
+            //var oldSceneContents = _sceneContents;
+            //_sceneContents = new SceneContents(_content);
             _navigation.NavigateTo(sceneName);
-            oldSceneContents.Dispose();
+            //oldSceneContents.Dispose();
             ReallyStupidPositionTracker.Instance.Reset();
         }
 
@@ -137,11 +138,10 @@ namespace MonoDragons.Core.Engine
             _spriteBatch.Draw(_rectTexture, rectangle, color);
         }
 
-        //public static void DrawCenter(string imageName)
-        //{
-            //var texture = 
-            //var useWidth =
-        //}
+        public static void DrawRotatedOnOrigin(string texture, Vector2 position, Vector2 origin, float rotation)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(texture), position * Scale, null, Color.White, rotation, origin, Scale, SpriteEffects.None, 0.0f);
+        }
 
         public static void Publish<T>(T payload)
         {

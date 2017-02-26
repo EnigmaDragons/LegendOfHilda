@@ -1,4 +1,5 @@
-﻿using MonoDragons.Core.Engine;
+﻿using System.Collections.Generic;
+using MonoDragons.Core.Engine;
 
 namespace TheLegendOfHilda.TileEngine
 {
@@ -6,5 +7,6 @@ namespace TheLegendOfHilda.TileEngine
     {
         int Layer { get; }
         TileLocation Location { get; }
+        List<TileLocation> Locations { get; }
     }
 }

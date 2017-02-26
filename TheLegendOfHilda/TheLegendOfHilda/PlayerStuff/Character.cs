@@ -15,7 +15,7 @@ namespace TheLegendOfHilda.PlayerStuff
 
         private readonly Color debugColor = new Color(256, 0, 0, 10);
         private Dictionary<AnimationState, Animation> animations;
-        private AnimationState currentAnimationState = AnimationState.StandingForward;
+        protected AnimationState currentAnimationState = AnimationState.StandingForward;
 
         protected readonly float speed = 2.0f; // pixels/sec
         protected Vector2 position;
@@ -24,7 +24,7 @@ namespace TheLegendOfHilda.PlayerStuff
 
         private Vector2 proposedPosition;
 
-        private bool isAttacking;
+        protected bool isAttacking;
         private float currentAttackTime; // seconds
         private readonly float attackTime = 0.2f; // seconds
 
@@ -64,6 +64,7 @@ namespace TheLegendOfHilda.PlayerStuff
                 position = proposedPosition;
                 boundingBox.Position = position + boundingBoxOffset;
             }
+
             animations[currentAnimationState].Update(deltaTime);
         }
 
