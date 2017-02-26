@@ -105,6 +105,9 @@
     <Content Include="Content\Images\Enemies\archer-u.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Backgrounds\gameover1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Backgrounds\pressenter1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
