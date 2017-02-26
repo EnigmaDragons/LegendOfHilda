@@ -39,18 +39,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Enemies\SpearEnemy.cs" />
+    <Compile Include="Items\SmallChest.cs" />
     <Compile Include="PlayerStuff\AnimationState.cs" />
     <Compile Include="PlayerStuff\Character.cs" />
     <Compile Include="PlayerStuff\Player.cs" />
-    <Compile Include="Obstacles\Striker.cs" />
-    <Compile Include="PlayerControl\Player.cs" />
     <Compile Include="PlayerStuff\PlayerAnimationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scenes\EnemyPatrolingScene.cs" />
     <Compile Include="Scenes\BrendanTestScene.cs" />
     <Compile Include="Scenes\EntranceRoom.cs" />
+    <Compile Include="Scenes\GameOver.cs" />
     <Compile Include="Scenes\GiovanniTestScene.cs" />
+    <Compile Include="Scenes\MainHallRoom.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\TimTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
@@ -73,6 +73,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Enemies\archer-atk-d.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-atk-l.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-atk-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-atk-u.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-d.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-l.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-missile1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-missile2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-u.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Backgrounds\gameover1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Backgrounds\pressenter1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Enemies\striker-d.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -85,6 +121,12 @@
     <Content Include="Content\Images\Enemies\striker-u.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Objects\chest-closed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Objects\chest-open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Objects\heart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -92,6 +134,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Backgrounds\title1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Objects\key-small.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Temp\BackgroundPlaceholder.jpg">

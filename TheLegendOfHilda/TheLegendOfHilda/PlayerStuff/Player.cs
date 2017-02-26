@@ -6,6 +6,8 @@ namespace TheLegendOfHilda.PlayerStuff
 {
     public class Player : Character
     {
+        public Vector2 EnemyTrackingPosition => boundingBox.Center;
+
         public Player(Vector2 initialPosition)
             : base(PlayerAnimationFactory.GetPlayerAnimations())
         {
