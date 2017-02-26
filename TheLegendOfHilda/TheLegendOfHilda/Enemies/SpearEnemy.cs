@@ -23,6 +23,7 @@ namespace TheLegendOfHilda.Enemies
 
         public void Draw(Vector2 offset)
         {
+            base.Draw();
         }
 
         private static Dictionary<AnimationState, Animation> CreateAnimations()
