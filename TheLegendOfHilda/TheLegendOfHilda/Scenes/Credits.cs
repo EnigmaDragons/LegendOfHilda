@@ -9,32 +9,29 @@ using System.Threading.Tasks;
 
 namespace TheLegendOfHilda.Scenes
 {
-    class VictoryScene : IScene
+    class Credits : IScene
     {
-        private bool _ShouldShowEnter;
+        private float _Height = 333;
         private double _Millis;
 
         public void Draw()
         {
             World.DrawBackgroundColor(Color.Black);
-            World.DrawCentered("Images/Backgrounds/bg2", new Vector2(256, 144) * new Vector2(1.6f));
-            World.DrawCentered("Images/Backgrounds/victory1");
-            if (_ShouldShowEnter)
-                World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
+            World.Draw("Images/Backgrounds/credits 1", new Vector2(0, _Height));
+            World.Draw("Images/Backgrounds/pressenter1", new Rectangle(180, 180, 200, 100));
         }
-
         public void Init()
         {
-            Input.On(Control.Start, () => World.NavigateToScene("Credits"));
+            Input.On(Control.Start, () => World.NavigateToScene("Title"));
         }
 
         public void Update(TimeSpan delta)
         {
             _Millis += delta.TotalMilliseconds;
-            if (_Millis > 333)
+            if (_Millis > 20)
             {
-                _Millis -= 333;
-                _ShouldShowEnter = !_ShouldShowEnter;
+                _Millis -= 20;
+                _Height = _Height-0.5f; 
             }
         }
     }

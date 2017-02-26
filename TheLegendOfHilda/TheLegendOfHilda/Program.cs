@@ -49,6 +49,7 @@ namespace TheLegendOfHilda
                 { "Room1", () => new Room1() },
                 { "GameOver", () => new GameOver() },
                 { "Victory", () => new VictoryScene() },
+                { "Credits", () => new Credits() },
             });
         }
     }
