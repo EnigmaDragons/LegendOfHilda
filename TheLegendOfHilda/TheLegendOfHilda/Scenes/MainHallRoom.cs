@@ -16,7 +16,7 @@ namespace TheLegendOfHilda.Scenes
 
         public void Init()
         {
-            _player = new Player(new Vector2(TileSize.Int * 12, TileSize.Int * 12));
+            _player = new Player(new Vector2(TileSize.Int * 7, TileSize.Int * 16));
 
             _room = new Room();
             _room.Add(new TileWalker(0, 16, 0, 20).Get(x => new Tile("tile1", x, Rotation.Up)));
@@ -42,8 +42,7 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(2, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Up)));
             _room.Add(new TileWalker(2, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Left)));
             _room.Add(new TileWalker(12, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Right)));
-            _room.Add(new TileWalker(12, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));
-            
+            _room.Add(new TileWalker(12, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));            
             _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene", _player));
             _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom", _player));
             _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "GameOver", _player));
@@ -61,7 +60,11 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new Obj("Pot", new TileLocation(13, 16)));
             _room.Add(new Obj("Pot", new TileLocation(13, 17)));
             _room.Add(new Obj("Pot", new TileLocation(12, 17)));
-            
+
+            _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "OgreChestRoom", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "SmallChestRoom", _player));
         }
 
         public void Update(TimeSpan delta)
