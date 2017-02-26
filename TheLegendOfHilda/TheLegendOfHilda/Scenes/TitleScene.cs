@@ -5,7 +5,7 @@ using MonoDragons.Core.Inputs;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class TitleScene : IScene
+    public class TitleScene : @string
     {
         public void Init()
         {

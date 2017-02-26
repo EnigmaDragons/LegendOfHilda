@@ -7,7 +7,7 @@ using TheLegendOfHilda.PlayerControl;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class EnemyPatrolingScene : IScene
+    public class EnemyPatrolingScene : @string
     {
         private List<IVisual> _visuals = new List<IVisual>();
         private List<IAutomaton> _automaton = new List<IAutomaton>();

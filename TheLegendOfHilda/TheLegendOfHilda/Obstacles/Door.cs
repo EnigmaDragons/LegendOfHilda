@@ -12,9 +12,11 @@ namespace TheLegendOfHilda.Obstacles
         public int Layer => 1;
         public TileLocation Location { get; }
         public Rotation Rotation;
+        public string ConnectedRoom;
 
-        public Door(DoorState state, TileLocation location, Rotation rotation)
+        public Door(DoorState state, TileLocation location, Rotation rotation, string connectedRoom)
         {
+            ConnectedRoom = connectedRoom;
             Rotation = rotation;
             Location = location;
             _state = state;

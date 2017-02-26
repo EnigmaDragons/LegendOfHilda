@@ -7,7 +7,7 @@ using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class EntranceRoom : IScene
+    public class EntranceRoom : @string
     {
         private Room _room;
         private Player _player;
@@ -24,14 +24,27 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(0, 1, 1, 12).Get(x => new Tile("wall", x, Rotation.Left)));
             _room.Add(new TileWalker(14, 1, 2, 12).Get(x => new Tile("wall", x, Rotation.Right)));
             _room.Add(new TileWalker(1, 12, 14, 1).Get(x => new Tile("wall", x, Rotation.Down)));
+
             _room.Add(new TileWalker(0, 1, 0, 1).Get(x => new Tile("wallcorner", x, Rotation.Up)));
             _room.Add(new TileWalker(0, 1, 14, 1).Get(x => new Tile("wallcorner", x, Rotation.Left)));
             _room.Add(new TileWalker(14, 1, 0, 1).Get(x => new Tile("wallcorner", x, Rotation.Right)));
             _room.Add(new TileWalker(14, 1, 14, 1).Get(x => new Tile("wallcorner", x, Rotation.Down)));
+
             _room.Add(new TileWalker(2, 2, 12, 2).Get(x => new Obj("pot", x)));
             _room.Add(new Tile("dungeonentrance", new TileLocation(6, 12), Rotation.Up));
-            _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0), Rotation.Up));
-            _player = new Player(new Vector2(100, 100));
+            _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0), Rotation.Up, "MainHallRoom"));
+
+            _room.Add(new TileWalker(3, 10, 2, 1).Get(x => new Tile("walledge", x, Rotation.Up)));
+            _room.Add(new TileWalker(2, 1, 2, 10).Get(x => new Tile("walledge", x, Rotation.Left)));
+            _room.Add(new TileWalker(12, 1, 3, 10).Get(x => new Tile("walledge", x, Rotation.Right)));
+            _room.Add(new TileWalker(2, 10, 12, 1).Get(x => new Tile("walledge", x, Rotation.Down)));
+
+            _room.Add(new TileWalker(2, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Up)));
+            _room.Add(new TileWalker(2, 1, 12, 1).Get(x => new Tile("walledgecorner", x, Rotation.Left)));
+            _room.Add(new TileWalker(12, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Right)));
+            _room.Add(new TileWalker(12, 1, 12, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));
+
+            _player = new Player(new Vector2(32 * 20, 32 * 20));
         }
 
         public void Update(TimeSpan delta)
