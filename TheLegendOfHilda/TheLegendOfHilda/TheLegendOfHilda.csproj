@@ -49,6 +49,7 @@
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Enemies\SpearEnemy.cs" />
     <Compile Include="Items\SmallChest.cs" />
+    <Compile Include="Obstacles\PitCorner.cs" />
     <Compile Include="PlayerStuff\AnimationState.cs" />
     <Compile Include="PlayerStuff\Character.cs" />
     <Compile Include="PlayerStuff\Player.cs" />
@@ -200,7 +201,7 @@
     <Content Include="Content\Images\Tiles\bottomlesscorner.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Tiles\bottomless pit2.png">
+    <Content Include="Content\Images\Tiles\bottomlessedge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Tiles\door-blocked.png">
