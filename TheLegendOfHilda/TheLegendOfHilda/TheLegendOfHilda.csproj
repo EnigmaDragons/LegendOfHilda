@@ -52,6 +52,7 @@
     <Compile Include="Scenes\BrendanTestScene.cs" />
     <Compile Include="Scenes\EntranceRoom.cs" />
     <Compile Include="Scenes\GiovanniTestScene.cs" />
+    <Compile Include="Scenes\MainHallRoom.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\TimTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
@@ -82,6 +83,9 @@
     <Content Include="Content\Images\Enemies\archer-l.png" />
     <Content Include="Content\Images\Enemies\archer-r.png" />
     <Content Include="Content\Images\Enemies\archer-u.png" />
+    <Content Include="Content\Images\Backgrounds\pressenter1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Enemies\striker-d.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

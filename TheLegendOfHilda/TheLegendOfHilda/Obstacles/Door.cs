@@ -11,9 +11,11 @@ namespace TheLegendOfHilda.Obstacles
 
         public int Layer => 1;
         public TileLocation Location { get; }
+        public Rotation Rotation;
 
-        public Door(DoorState state, TileLocation location)
+        public Door(DoorState state, TileLocation location, Rotation rotation)
         {
+            Rotation = rotation;
             Location = location;
             _state = state;
         }
@@ -24,7 +26,7 @@ namespace TheLegendOfHilda.Obstacles
 
         public void Draw(Vector2 offset)
         {
-            World.Draw("Images/Tiles/door-" + _state.ToString().ToLower(), Location.Position + offset);
+            World.DrawRotated("Images/Tiles/door-" + _state.ToString().ToLower(), Location.Position + offset, Rotation.Value);
         }
     }
 
