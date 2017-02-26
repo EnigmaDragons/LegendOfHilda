@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheLegendOfHilda.Obstacles;
+using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
@@ -13,6 +14,8 @@ namespace TheLegendOfHilda.Scenes
     public class MainHallRoom : IScene
     {
         private Room _room;
+        private Player _player;
+        private List<IVisualAutomaton> _enemies = new List<IVisualAutomaton>();
 
         public void Init()
         {
@@ -57,19 +60,22 @@ namespace TheLegendOfHilda.Scenes
 
             _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene"));
             _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom"));
-            _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "TimTestScene"));
+            _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "OgreChestRoom"));
             _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "TimTestScene"));
         }
 
         public void Update(TimeSpan delta)
         {
-
+            _player.Update(delta);
+            _enemies.ForEach(x => x.Update(delta));
         }
 
         public void Draw()
         {
             World.DrawBackgroundColor(Color.Black);
             _room.Draw(new Vector2());
+            _player.Draw();
+            _enemies.ForEach(x => x.Draw(Vector2.Zero));
         }
     }
 }
