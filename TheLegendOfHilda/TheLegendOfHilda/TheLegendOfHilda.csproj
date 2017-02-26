@@ -272,7 +272,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\SFX\LTTP_Link_Fall.xnb">
+    <Content Include="Content\SFX\Fall.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
