@@ -196,6 +196,9 @@
     <Content Include="Content\Images\Objects\pot.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Tiles\bottomlesscorner.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Tiles\door-blocked.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
