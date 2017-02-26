@@ -53,6 +53,10 @@ namespace MonoDragons.Core.Engine
             MediaPlayer.Stop();
             MediaPlayer.Play(Load<Song>(songName));
         }
+        public static void StopMusic(string songName)
+        {
+            MediaPlayer.Stop();
+        }
 
         private static T Load<T>(string resourceName) where T : IDisposable
         {

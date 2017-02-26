@@ -42,7 +42,11 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(2, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Up)));
             _room.Add(new TileWalker(2, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Left)));
             _room.Add(new TileWalker(12, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Right)));
-            _room.Add(new TileWalker(12, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));
+            _room.Add(new TileWalker(12, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));            
+            _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "GameOver", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "TimTestScene", _player));
 
             _room.Add(new Tile("itemplatform", new TileLocation(2, 16), Rotation.Up));
             _room.Add(new Tile("itemplatform", new TileLocation(2, 17), Rotation.Up));
