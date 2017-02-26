@@ -6,7 +6,7 @@ Game Jam - Created on 2/26/17
 
 ----
 
-![screenshot](https://github.com/EnigmaDragons/LegendOfHilda/blob/master/screenshots/screen1.jpg)
+![screenshot](https://github.com/EnigmaDragons/LegendOfHilda/blob/master/Screenshots/screen1.jpg)
 
 ----
 
