@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Media;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.UI;
 using System;
+using MonoDragons.Core.Physics;
 
 namespace MonoDragons.Core.Engine
 {
@@ -65,6 +66,7 @@ namespace MonoDragons.Core.Engine
             _sceneContents = new SceneContents(_content);
             _navigation.NavigateTo(sceneName);
             oldSceneContents.Dispose();
+            ReallyStupidPositionTracker.Instance.Reset();
         }
 
         public static void DrawBackgroundColor(Color color)
