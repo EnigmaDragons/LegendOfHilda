@@ -38,6 +38,15 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components\Collideable.cs" />
+    <Compile Include="Components\Keys.cs" />
+    <Compile Include="Components\Health.cs" />
+    <Compile Include="Components\Opacity.cs" />
+    <Compile Include="Components\Position.cs" />
+    <Compile Include="Components\Regenerates.cs" />
+    <Compile Include="Components\Renderable.cs" />
+    <Compile Include="Components\Rotation.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Enemies\SpearEnemy.cs" />
     <Compile Include="Items\SmallChest.cs" />
     <Compile Include="PlayerStuff\AnimationState.cs" />
@@ -52,6 +61,22 @@
     <Compile Include="Scenes\GiovanniTestScene.cs" />
     <Compile Include="Scenes\MainHallRoom.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
+    <Compile Include="Systems\Bounds2D.cs" />
+    <Compile Include="Systems\CollisionEvent.cs" />
+    <Compile Include="Systems\Colliding\CollisionGrid.cs" />
+    <Compile Include="Systems\Colliding\CollisionSettings.cs" />
+    <Compile Include="Systems\Colliding\CollisionSystem.cs" />
+    <Compile Include="Systems\Healing\HealAmount.cs" />
+    <Compile Include="Systems\Healing\Healer.cs" />
+    <Compile Include="Systems\IHealer.cs" />
+    <Compile Include="Systems\Healing\HealingSettings.cs" />
+    <Compile Include="Systems\Healing\HealingSystem.cs" />
+    <Compile Include="Systems\Point2D.cs" />
+    <Compile Include="Systems\Rendering\RenderSettings.cs" />
+    <Compile Include="Systems\Rendering\RenderSystem.cs" />
+    <Compile Include="Systems\RenderTarget.cs" />
+    <Compile Include="Systems\Spawning\SpawningSettings.cs" />
+    <Compile Include="Systems\Spawning\SpawningSystem.cs" />
     <Compile Include="Scenes\TimTestScene.cs" />
     <Compile Include="Scenes\Room1.cs" />
     <Compile Include="Obstacles\Door.cs" />
@@ -202,6 +227,10 @@
     <ProjectReference Include="..\MonoDragons.Core\MonoDragons.Core.csproj">
       <Project>{a33f8fe3-a35a-4ddf-b96c-0157224f602c}</Project>
       <Name>MonoDragons.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoDragons.Ecstasy\MonoDragons.Ecstasy.csproj">
+      <Project>{7320b266-a755-4d71-b6db-49a8b45f3690}</Project>
+      <Name>MonoDragons.Ecstasy</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
