@@ -16,7 +16,7 @@ namespace TheLegendOfHilda.Enemies
         private const float ChargeMaxSpeed = 0.10f;
         private const float AccelerationPerMillis = 0.002f;
         //private const float DecelerationPerMillis = 0.005f;
-        private const float ChargeDistance = 48;
+        private const float ChargeDistance = 72;
         private const int ChargeDelayMillis = 250;
         private const int ExhaustDelayMillis = 550;
         private bool IsExhausted = false;

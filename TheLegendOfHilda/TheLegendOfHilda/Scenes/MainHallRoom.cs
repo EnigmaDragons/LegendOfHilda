@@ -61,7 +61,9 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene"));
             _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom"));
             _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "OgreChestRoom"));
-            _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "TimTestScene"));
+            _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "SmallChestRoom"));
+
+            _player = new Player(new Vector2(TileSize.Int * 7, TileSize.Int * 16));
         }
 
         public void Update(TimeSpan delta)

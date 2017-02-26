@@ -50,7 +50,7 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new Tile("dungeonentrance", new TileLocation(6, 12), Rotation.Up));
             _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0), Rotation.Up, "MainHallRoom"));
 
-            _player = new Player(new Vector2(16 * 12, 16 * 12));
+            _player = new Player(new Vector2(TileSize.Int * 7, TileSize.Int * 12));
             _enemies.Add(new SpearEnemy(_player, new TileLocation(8, 5), new List<TileLocation> { new TileLocation(8, 5), new TileLocation(8, 10) }));
         }
 

@@ -62,6 +62,7 @@
     <Compile Include="Scenes\MainHallRoom.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\OgreChestRoom.cs" />
+    <Compile Include="Scenes\SmallChestRoom.cs" />
     <Compile Include="Systems\Bounds2D.cs" />
     <Compile Include="Systems\CollisionEvent.cs" />
     <Compile Include="Systems\Colliding\CollisionGrid.cs" />
