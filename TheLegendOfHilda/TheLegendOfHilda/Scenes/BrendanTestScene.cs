@@ -7,7 +7,7 @@ using TheLegendOfHilda.PlayerStuff;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class BrendanTestScene : @string
+    public class BrendanTestScene : IScene
     {
         Player player;
 

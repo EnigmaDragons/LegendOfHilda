@@ -5,14 +5,14 @@ namespace MonoDragons.Core.Engine
 {
     public class SceneFactory
     {
-        private readonly Dictionary<string, Func<@string>> _sceneInstructions;
+        private readonly Dictionary<string, Func<IScene>> _sceneInstructions;
 
-        public SceneFactory(Dictionary<string, Func<@string>> sceneInstructions)
+        public SceneFactory(Dictionary<string, Func<IScene>> sceneInstructions)
         {
             _sceneInstructions = sceneInstructions;
         }
 
-        public @string Create(string sceneName)
+        public IScene Create(string sceneName)
         {
             return _sceneInstructions[sceneName]();
         }

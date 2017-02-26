@@ -34,7 +34,7 @@ namespace TheLegendOfHilda
 
         private static SceneFactory CreateSceneFactory()
         {
-            return new SceneFactory(new Dictionary<string, Func<@string>>
+            return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
                 { "MainHallRoom", () => new MainHallRoom() },
                 { "EntranceRoom", () => new EntranceRoom() },

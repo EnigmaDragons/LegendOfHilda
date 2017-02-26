@@ -20,7 +20,7 @@ namespace TheLegendOfHilda.Enemies
         //walk speed
         private const float PatrolSpeed = 0.1F;
         //player sense 
-        private const float SenseDistance = 1000;
+        private const float SenseDistance = 100;
 
         private Vector2 _location;
 
@@ -37,7 +37,7 @@ namespace TheLegendOfHilda.Enemies
             _player = player;
             _patrolPath = path;
             _isPatroling = path.Count > 1;
-            _location = new Vector2(postion.Position.X + 16, postion.Position.Y + 16);
+            _location = new Vector2(_location.X + TileSize.Int / 2, _location.Y + TileSize.Int / 2);
             if (_isPatroling)
                 _targetNode = _patrolPath[_index].Position;
         }
@@ -59,7 +59,7 @@ namespace TheLegendOfHilda.Enemies
 
         public void Draw(Vector2 offset)
         {
-            base.position = new Vector2(_location.X -16, _location.Y - 16);
+            base.position = new Vector2(_location.X - TileSize.Int / 2, _location.Y - TileSize.Int / 2);
             base.Draw();
         }
 

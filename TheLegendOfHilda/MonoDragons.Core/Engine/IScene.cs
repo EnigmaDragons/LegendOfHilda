@@ -2,7 +2,7 @@
 
 namespace MonoDragons.Core.Engine
 {
-    public interface @string
+    public interface IScene
     {
         void Init();
         void Update(TimeSpan delta);
