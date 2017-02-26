@@ -12,10 +12,3 @@
 
 
 #---------------------------------- Content ---------------------------------#
-
-#begin Sword1.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sword1.wav
-
