@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Enemies\SpearEnemy.cs" />
+    <Compile Include="Items\SmallChest.cs" />
     <Compile Include="PlayerStuff\AnimationState.cs" />
     <Compile Include="PlayerStuff\Character.cs" />
     <Compile Include="PlayerStuff\Player.cs" />
@@ -88,6 +89,12 @@
     <Content Include="Content\Images\Enemies\striker-u.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Objects\chest-closed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Objects\chest-open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Objects\heart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -95,6 +102,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Backgrounds\title1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Objects\key-small.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Temp\BackgroundPlaceholder.jpg">

@@ -2,6 +2,7 @@
 using MonoDragons.Core.Engine;
 using System;
 using System.Linq;
+using TheLegendOfHilda.Items;
 using TheLegendOfHilda.Obstacles;
 using TheLegendOfHilda.TileEngine;
 
@@ -23,6 +24,7 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new Tile("wallcorner", new TileLocation(0, 0), Rotation.Up));
             _room.Add(new TileWalker(6, 5, 6, 5).Get(x => new Obj("pot", x)));
             _room.Add(new Door(DoorState.Blocked, new TileLocation(7, 0)));
+            _room.Add(new SmallChest(new TileLocation(4, 4)));
         }
 
         public void Update(TimeSpan delta)
