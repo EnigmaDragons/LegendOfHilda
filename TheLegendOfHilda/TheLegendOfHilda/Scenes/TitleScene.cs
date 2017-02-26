@@ -5,7 +5,7 @@ using MonoDragons.Core.Inputs;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class TitleScene : @string
+    public class TitleScene : IScene
     {
         private bool _ShouldShowEnter;
         private double _Millis;

@@ -115,13 +115,13 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
         {
-            var destinationRect = new Rectangle((int)position.X, (int)position.Y, (int)(sourceRectangle.Width * Scale), (int)(sourceRectangle.Height * Scale));
+            var destinationRect = new Rectangle(ScalePoint(position.X, position.Y), ScalePoint(sourceRectangle.Width, sourceRectangle.Height));
             _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White);
         }
 
         public static void DrawFlipped(string imageName, Vector2 position, Rectangle sourceRectangle)
         {
-            var destinationRect = new Rectangle((int)position.X, (int)position.Y, (int)(sourceRectangle.Width * Scale), (int)(sourceRectangle.Height * Scale));
+            var destinationRect = new Rectangle(ScalePoint(position.X, position.Y), ScalePoint(sourceRectangle.Width, sourceRectangle.Height));
             _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White, 0.0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
         }
 

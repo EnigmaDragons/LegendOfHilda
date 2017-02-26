@@ -9,7 +9,7 @@ using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class EntranceRoom : @string
+    public class EntranceRoom : IScene
     {
         private Room _room;
         private Player _player;
@@ -47,7 +47,7 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(12, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Right)));
             _room.Add(new TileWalker(12, 1, 12, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));
 
-            _player = new Player(new Vector2(32 * 20, 32 * 20));
+            _player = new Player(new Vector2(16 * 12, 16 * 12));
             _enemies.Add(new SpearEnemy(_player, new TileLocation(8, 5), new List<TileLocation> { new TileLocation(8, 5), new TileLocation(8, 10) }));
         }
 

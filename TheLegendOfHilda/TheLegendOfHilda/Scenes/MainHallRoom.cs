@@ -10,7 +10,7 @@ using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
 {
-    public class MainHallRoom : @string
+    public class MainHallRoom : IScene
     {
         private Room _room;
 

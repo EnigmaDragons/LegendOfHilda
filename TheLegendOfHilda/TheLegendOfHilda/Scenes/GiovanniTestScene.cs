@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TheLegendOfHilda.Scenes
 {
-    class GiovanniTestScene : @string
+    class GiovanniTestScene : IScene
     {
         public void Draw()
         {
