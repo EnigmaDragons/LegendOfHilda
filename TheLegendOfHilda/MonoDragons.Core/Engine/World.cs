@@ -66,12 +66,12 @@ namespace MonoDragons.Core.Engine
 
         public static void NavigateToScene(string sceneName)
         {
+            //ReallyStupidPositionTracker.Instance.Reset();
             //TODO: Shared resources between scenes might be a problem for ContentManager
             //var oldSceneContents = _sceneContents;
             //_sceneContents = new SceneContents(_content);
             _navigation.NavigateTo(sceneName);
             //oldSceneContents.Dispose();
-            ReallyStupidPositionTracker.Instance.Reset();
         }
 
         public static void DrawBackgroundColor(Color color)

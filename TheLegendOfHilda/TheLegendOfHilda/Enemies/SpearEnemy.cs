@@ -24,7 +24,7 @@ namespace TheLegendOfHilda.Enemies
         //walk speed
         private const float PatrolSpeed = 0.03F;
         //player sense 
-        private const float SenseDistance = 48;
+        private const float SenseDistance = 72;
 
         private Vector2 _location;
 

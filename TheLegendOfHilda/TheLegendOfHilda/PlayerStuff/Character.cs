@@ -22,7 +22,7 @@ namespace TheLegendOfHilda.PlayerStuff
         protected AxisAlignedBoundingBox boundingBox;
         protected Vector2 boundingBoxOffset;
 
-        private Vector2 proposedPosition;
+        protected Vector2 proposedPosition;
 
         protected bool isAttacking;
         private float currentAttackTime; // seconds
@@ -63,6 +63,10 @@ namespace TheLegendOfHilda.PlayerStuff
             {
                 position = proposedPosition;
                 boundingBox.Position = position + boundingBoxOffset;
+            }
+            else
+            {
+                proposedPosition = position;
             }
 
             animations[currentAnimationState].Update(deltaTime);

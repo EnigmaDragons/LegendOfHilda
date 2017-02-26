@@ -12,8 +12,6 @@ namespace TheLegendOfHilda.TileEngine
             : base(rotation, location)
         {
             _textureName = textureName;
-            if(blocking)
-                base.Locations.ForEach(x => ReallyStupidPositionTracker.Instance.IBlock(new AxisAlignedBoundingBox(x.Position.X, x.Position.Y, TileSize.Int, TileSize.Int)));
         }
 
         protected override string TextureName => "Images/Tiles/" + _textureName;

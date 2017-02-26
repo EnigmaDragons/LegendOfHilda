@@ -49,6 +49,8 @@
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Enemies\SpearEnemy.cs" />
     <Compile Include="Items\SmallChest.cs" />
+    <Compile Include="Obstacles\Wall.cs" />
+    <Compile Include="Obstacles\WallCorner.cs" />
     <Compile Include="PlayerStuff\AnimationState.cs" />
     <Compile Include="PlayerStuff\Character.cs" />
     <Compile Include="PlayerStuff\Player.cs" />

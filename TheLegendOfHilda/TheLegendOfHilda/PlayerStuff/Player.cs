@@ -13,6 +13,7 @@ namespace TheLegendOfHilda.PlayerStuff
             : base(PlayerAnimationFactory.GetPlayerAnimations())
         {
             position = initialPosition;
+            proposedPosition = position;
             boundingBox = new AxisAlignedBoundingBox(position, new Vector2(16, 18));
             boundingBoxOffset = new Vector2(8, 9);
             Input.OnDirection(OnDirection);

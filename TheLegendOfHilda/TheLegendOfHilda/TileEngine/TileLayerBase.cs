@@ -20,11 +20,13 @@ namespace TheLegendOfHilda.TileEngine
         public TileLayerBase(Rotation rotation, TileLocation loc)
             : this(rotation, new List<TileLocation> { loc }) { }
 
-        public TileLayerBase(Rotation rotation, List<TileLocation> locs)
+        public TileLayerBase(Rotation rotation, List<TileLocation> locs, bool blocking = false)
         {
             Rotation = rotation;
             Location = locs.First();
             Locations = locs;
+            if (blocking)
+                Locations.ForEach(x => ReallyStupidPositionTracker.Instance.IBlock(new AxisAlignedBoundingBox(x.Position.X, x.Position.Y, TileSize.Int, TileSize.Int)));
         }
 
         public virtual void Update(TimeSpan delta)
