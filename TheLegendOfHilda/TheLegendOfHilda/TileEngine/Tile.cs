@@ -1,32 +1,17 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using MonoDragons.Core.Engine;
-
+﻿
 namespace TheLegendOfHilda.TileEngine
 {
-    public class Tile : ITileLayer
+    public class Tile : TileLayerBase
     {
-        public int Layer => 1;
-
-        public TileLocation Location { get; }
-
         private readonly string _textureName;
-        private readonly Rotation _rotation;
-        
+
         public Tile(string textureName, TileLocation location, Rotation rotation)
+            : base(rotation, location)
         {
-            Location = location;
-            _textureName = "Images/Tiles/" + textureName;
-            _rotation = rotation;
+            _textureName = textureName;
         }
 
-        public void Update(TimeSpan delta)
-        {
-        }
-
-        public void Draw(Vector2 offset)
-        {
-            World.DrawRotated(_textureName, Location.Position + offset, _rotation.Value);
-        }
+        protected override string TextureName => "Images/Tiles/" + _textureName;
+        public override int Layer => 1;
     }
 }

@@ -1,31 +1,17 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using MonoDragons.Core.Engine;
-using TheLegendOfHilda.TileEngine;
+﻿using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Items
 {
-    public class SmallChest : ITileLayer
+    public class SmallChest : TileLayerBase
     {
-        public int Layer => 2;
-        public TileLocation Location { get; }
+        public override int Layer => 2;
 
         private ChestState _state = ChestState.Closed;
-        private string _spriteBaseName = "Images/Objects/chest-";
 
         public SmallChest(TileLocation loc)
-        {
-            Location = loc;
-        }
+            : base(Rotation.Up, loc) { }
 
-        public void Update(TimeSpan delta)
-        {
-        }
-
-        public void Draw(Vector2 offset)
-        {
-            World.Draw(_spriteBaseName + _state.ToString().ToLower(), Location.Position + offset);
-        }
+        protected override string TextureName => "Images/Objects/chest-" + _state.ToString().ToLower();
     }
 
     public enum ChestState

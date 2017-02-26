@@ -1,21 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TheLegendOfHilda.Obstacles;
+using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
 {
     public class MainHallRoom : IScene
     {
+        private Player _player;
         private Room _room;
 
         public void Init()
         {
+            _player = new Player(new Vector2(TileSize.Int * 12, TileSize.Int * 12));
+
             _room = new Room();
             _room.Add(new TileWalker(0, 16, 0, 20).Get(x => new Tile("tile1", x, Rotation.Up)));
             //_room.Add(new TileWalker(0, 1, 0, 20).Get(x => new Tile("ext1", x, Rotation.Up)));
@@ -49,21 +49,23 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(12, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Right)));
             _room.Add(new TileWalker(12, 1, 16, 1).Get(x => new Tile("walledgecorner", x, Rotation.Down)));
 
-            _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene"));
-            _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom"));
-            _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "TimTestScene"));
-            _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "TimTestScene"));
+            _room.Add(new Door(DoorState.Locked, new TileLocation(7, 0), Rotation.Up, "TimTestScene", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(7, 18), Rotation.Down, "EntranceRoom", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(0, 8), Rotation.Left, "TimTestScene", _player));
+            _room.Add(new Door(DoorState.Open, new TileLocation(14, 8), Rotation.Right, "TimTestScene", _player));
         }
 
         public void Update(TimeSpan delta)
         {
-
+            _room.Update(delta);
+            _player.Update(delta);
         }
 
         public void Draw()
         {
             World.DrawBackgroundColor(Color.Black);
             _room.Draw(new Vector2());
+            _player.Draw();
         }
     }
 }
