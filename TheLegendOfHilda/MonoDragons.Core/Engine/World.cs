@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Media;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.UI;
 using System;
+using MonoDragons.Core.Physics;
 
 namespace MonoDragons.Core.Engine
 {
@@ -65,6 +66,7 @@ namespace MonoDragons.Core.Engine
 
         public static void NavigateToScene(string sceneName)
         {
+            //ReallyStupidPositionTracker.Instance.Reset();
             //TODO: Shared resources between scenes might be a problem for ContentManager
             //var oldSceneContents = _sceneContents;
             //_sceneContents = new SceneContents(_content);

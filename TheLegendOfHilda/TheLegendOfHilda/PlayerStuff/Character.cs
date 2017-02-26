@@ -5,10 +5,11 @@ using MonoDragons.Core.Animation;
 using MonoDragons.Core.Collision;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
+using MonoDragons.Core.Physics;
 
 namespace TheLegendOfHilda.PlayerStuff
 {
-    public abstract class Character
+    public abstract class Character 
     {
         private static bool drawDebug = true;
 
@@ -20,6 +21,8 @@ namespace TheLegendOfHilda.PlayerStuff
         protected Vector2 position;
         protected AxisAlignedBoundingBox boundingBox;
         protected Vector2 boundingBoxOffset;
+
+        protected Vector2 proposedPosition;
 
         protected bool isAttacking;
         private float currentAttackTime; // seconds
@@ -51,7 +54,21 @@ namespace TheLegendOfHilda.PlayerStuff
                         currentAnimationState = AnimationState.StandingRight;
                 }
             }
-            boundingBox.Position = position + boundingBoxOffset;
+
+            
+            var potentialMove = new AxisAlignedBoundingBox(boundingBox.Top, boundingBox.Left, boundingBox.Width, boundingBox.Height);
+            potentialMove.Position = proposedPosition + boundingBoxOffset;
+
+            if (ReallyStupidPositionTracker.Instance.CanIGoHere(potentialMove))
+            {
+                position = proposedPosition;
+                boundingBox.Position = position + boundingBoxOffset;
+            }
+            else
+            {
+                proposedPosition = position;
+            }
+
             animations[currentAnimationState].Update(deltaTime);
         }
 
@@ -97,7 +114,7 @@ namespace TheLegendOfHilda.PlayerStuff
                         SetAnimationState(AnimationState.WalkingForward);
                 }
 
-                position += movement * speed;
+                proposedPosition += movement * speed;
             }
         }
 

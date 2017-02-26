@@ -32,17 +32,6 @@ namespace MonoDragons.Ecstasy
         public ComponentManager Components { get; } = new ComponentManager();
 
 
-
-        public T Managers<T>()
-        {
-            return default(T);
-        }
-
-        public T Settings<T>()
-        {
-            return default(T);
-        }
-
         public void Emit<T>(T gameEvent) where T : IEvent
         {
             throw new NotImplementedException();
