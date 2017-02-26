@@ -110,7 +110,7 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawCentered(string imageName, Vector2 WidthHeight)
         {
-            _spriteBatch.Draw(Load<Texture2D>(imageName), null, new Rectangle(ScalePoint(1344 / 2 / _scale - WidthHeight.X / 2, 960 / 2 / _scale - WidthHeight.Y / 2), ScalePoint(WidthHeight.X, WidthHeight.Y)), null, null, 0, new Vector2(_scale, _scale));
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, new Rectangle(ScalePoint(1344 / 2 / Scale - WidthHeight.X / 2, 960 / 2 / Scale - WidthHeight.Y / 2), ScalePoint(WidthHeight.X, WidthHeight.Y)), null, null, 0, new Vector2(Scale, Scale));
         }
 
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
