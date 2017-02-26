@@ -118,6 +118,7 @@ namespace TheLegendOfHilda.PlayerStuff
                     currentAnimationState == AnimationState.WalkingLeft)
                     currentAnimationState = AnimationState.AttackingLeft;
                 isAttacking = true;
+                World.PlaySound("SFX/Sword1");
                 currentAttackTime = attackTime;
             }
         }
