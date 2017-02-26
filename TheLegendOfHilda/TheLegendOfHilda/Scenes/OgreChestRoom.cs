@@ -2,10 +2,6 @@
 using MonoDragons.Core.Engine;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TheLegendOfHilda.Enemies;
 using TheLegendOfHilda.Obstacles;
 using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
@@ -47,7 +43,7 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(2, 1, 12, 1).Get(x => new Tile("walledgecorner", x, Rotation.Left)));
 
             _room.Add(new Obj("chest-closed", new TileLocation(2, 7)));
-            _room.Add(new Door(DoorState.Open, new TileLocation(14, 7), Rotation.Right, "MainHallRoom"));
+            _room.Add(new Door(DoorState.Open, new TileLocation(14, 7), Rotation.Right, "MainHallRoom", _player));
 
             _player = new Player(new Vector2(16 * 12, 8 * 12));
         }

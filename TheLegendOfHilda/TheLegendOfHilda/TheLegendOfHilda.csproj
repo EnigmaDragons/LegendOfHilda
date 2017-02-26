@@ -53,6 +53,7 @@
     <Compile Include="PlayerStuff\Character.cs" />
     <Compile Include="PlayerStuff\Player.cs" />
     <Compile Include="PlayerStuff\PlayerAnimationFactory.cs" />
+    <Compile Include="PlayerStuff\Sword.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\BrendanTestScene.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="TileEngine\Room.cs" />
     <Compile Include="TileEngine\Rotation.cs" />
     <Compile Include="TileEngine\Tile.cs" />
+    <Compile Include="TileEngine\TileLayerBase.cs" />
     <Compile Include="TileEngine\TileLocation.cs" />
     <Compile Include="TileEngine\TileSize.cs" />
     <Compile Include="TileEngine\TileWalker.cs" />
@@ -174,6 +176,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Objects\key-small.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Objects\Sword.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Temp\BackgroundPlaceholder.jpg">
