@@ -31,7 +31,7 @@ namespace TheLegendOfHilda.Scenes
             if (_Millis > 20)
             {
                 _Millis -= 20;
-                _Height = _Height-1; 
+                _Height = _Height-0.5f; 
             }
         }
     }
