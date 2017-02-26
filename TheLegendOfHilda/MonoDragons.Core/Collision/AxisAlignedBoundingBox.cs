@@ -8,6 +8,7 @@ namespace MonoDragons.Core.Collision
         public float Left { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
+        public Vector2 Center => Position + new Vector2(Width/2, Height/2);
 
         public Vector2 Position
         {

@@ -12,7 +12,7 @@ namespace TheLegendOfHilda.Scenes
 
         public void Init()
         {
-            Input.On(Control.Start, () => World.NavigateToScene("Room1"));
+            Input.On(Control.Start, () => World.NavigateToScene("EntranceRoom"));
         }
 
         public void Update(TimeSpan delta)

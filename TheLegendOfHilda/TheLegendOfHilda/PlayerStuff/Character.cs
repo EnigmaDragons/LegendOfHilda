@@ -37,7 +37,6 @@ namespace TheLegendOfHilda.PlayerStuff
 
         public void Draw()
         {
-            World.DrawBackgroundColor(Color.Black);
             animations[currentAnimationState].Draw(position);
             if (drawDebug)
             {
