@@ -51,6 +51,7 @@
     <Compile Include="Scenes\EnemyPatrolingScene.cs" />
     <Compile Include="Scenes\BrendanTestScene.cs" />
     <Compile Include="Scenes\EntranceRoom.cs" />
+    <Compile Include="Scenes\GameOver.cs" />
     <Compile Include="Scenes\GiovanniTestScene.cs" />
     <Compile Include="Scenes\MainHallRoom.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />

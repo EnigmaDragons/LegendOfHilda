@@ -19,7 +19,7 @@ namespace TheLegendOfHilda
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Title", new ScreenSize(1344, 960), 3, CreateSceneFactory(), CreateKeyboardContoller()))
+            using (var game = new MainGame("GameOver", new ScreenSize(1344, 960), 3, CreateSceneFactory(), CreateKeyboardContoller()))
                 game.Run();
         }
 
@@ -44,7 +44,8 @@ namespace TheLegendOfHilda
                 { "BrendanTestScene", () => new BrendanTestScene() },
                 { "Title", () => new TitleScene() },
                 { "GiovanniTestScene", () => new GiovanniTestScene() },
-                { "Room1", () => new Room1() }
+                { "Room1", () => new Room1() },
+                { "GameOver", () => new GameOver() },
             });
         }
     }
