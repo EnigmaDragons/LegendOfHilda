@@ -93,16 +93,10 @@
     <Content Include="Content\Images\Enemies\archer-l.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Enemies\archer-missile-d.png">
+    <Content Include="Content\Images\Enemies\archer-missile1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Images\Enemies\archer-missile-l.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Images\Enemies\archer-missile-r.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Images\Enemies\archer-missile-u.png">
+    <Content Include="Content\Images\Enemies\archer-missile2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Enemies\archer-r.png">
