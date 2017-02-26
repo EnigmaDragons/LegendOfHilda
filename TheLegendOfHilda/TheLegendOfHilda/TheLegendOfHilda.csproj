@@ -74,6 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Backgrounds\gameover1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Backgrounds\pressenter1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
