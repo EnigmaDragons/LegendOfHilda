@@ -61,10 +61,11 @@ namespace MonoDragons.Core.Engine
 
         public static void NavigateToScene(string sceneName)
         {
-            var oldSceneContents = _sceneContents;
-            _sceneContents = new SceneContents(_content);
+            //TODO: Shared resources between scenes might be a problem for ContentManager
+            //var oldSceneContents = _sceneContents;
+            //_sceneContents = new SceneContents(_content);
             _navigation.NavigateTo(sceneName);
-            oldSceneContents.Dispose();
+            //oldSceneContents.Dispose();
         }
 
         public static void DrawBackgroundColor(Color color)

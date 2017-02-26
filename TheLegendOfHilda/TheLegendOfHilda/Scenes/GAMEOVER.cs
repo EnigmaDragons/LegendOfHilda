@@ -2,25 +2,13 @@
 using System;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Inputs;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheLegendOfHilda.Scenes
 {
     public class GameOver : IScene
     {
-        private bool _ShouldShowEnter;
-        private double _Millis;
-
-        public void Draw()
-        {
-            World.DrawBackgroundColor(Color.Black);
-            World.DrawCentered("Images/Backgrounds/gameover1");
-            if (_ShouldShowEnter)
-                World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
-        }
+        private bool _shouldShowEnter;
+        private double _millis;
 
         public void Init()
         {
@@ -29,12 +17,21 @@ namespace TheLegendOfHilda.Scenes
 
         public void Update(TimeSpan delta)
         {
-            _Millis += delta.TotalMilliseconds;
-            if (_Millis > 333)
+            _millis += delta.TotalMilliseconds;
+            if (_millis > 333)
             {
-                _Millis -= 333;
-                _ShouldShowEnter = !_ShouldShowEnter;
+                _millis -= 333;
+                _shouldShowEnter = !_shouldShowEnter;
             }
+        }
+
+        public void Draw()
+        {
+            World.DrawBackgroundColor(Color.Black);
+            World.DrawCentered("Images/Backgrounds/gameover1");
+
+            if (_shouldShowEnter)
+                World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
         }
     }
 }

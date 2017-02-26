@@ -19,9 +19,7 @@ namespace TheLegendOfHilda
         [STAThread]
         static void Main()
         {
-
             using (var game = new MainGame("Victory", new ScreenSize(1344, 960), 3, CreateSceneFactory(), CreateKeyboardContoller()))
-
                 game.Run();
         }
 
