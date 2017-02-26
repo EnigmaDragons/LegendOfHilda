@@ -7,8 +7,8 @@ namespace TheLegendOfHilda.Scenes
 {
     public class TitleScene : IScene
     {
-        private bool _ShouldShowEnter;
-        private double _Millis;
+        private bool _shouldShowEnter;
+        private double _millis;
 
         public void Init()
         {
@@ -17,27 +17,22 @@ namespace TheLegendOfHilda.Scenes
 
         public void Update(TimeSpan delta)
         {
-            _Millis += delta.TotalMilliseconds;
-            if (_Millis>333)
+            _millis += delta.TotalMilliseconds;
+            if (_millis > 333)
             {
-                _Millis -= 333;
-                _ShouldShowEnter = !_ShouldShowEnter;
+                _millis -= 333;
+                _shouldShowEnter = !_shouldShowEnter;
             }
         }
 
         public void Draw()
         {
-            //var screenWidth = 1344 / 3;
-            //var screenHeight = 960 / 3;
-            //var useWidth = 
             World.DrawBackgroundColor(Color.Black);
             World.DrawCentered("Images/Backgrounds/bg 1", new Vector2(256, 144) * new Vector2(1.6f));
             World.DrawCentered("Images/Backgrounds/title1");
 
-            if (_ShouldShowEnter)            
+            if (_shouldShowEnter)            
                 World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
-            //World.Draw("Images/Backgrounds/bg 1", new Rectangle((int)(1344 * 0.25), (int)(960 * 0.25), 256, 144));
-            //World.Draw("Images/Backgrounds/title1", Vector2.Zero);
         }
     }
 }

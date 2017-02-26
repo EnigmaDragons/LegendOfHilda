@@ -13,14 +13,17 @@ namespace TheLegendOfHilda.Enemies
     public class SpearEnemy : Character, IVisualAutomaton
     {
         //charge details
-        private const float ChargeMaxSpeed = 0.5f;
-        private const float AccelerationPerMillis = 0.0001f;
-        private const float ChargeDistance = 100;
-        private const int ChargeDelayMillis = 1000;
+        private const float ChargeMaxSpeed = 0.10f;
+        private const float AccelerationPerMillis = 0.002f;
+        //private const float DecelerationPerMillis = 0.005f;
+        private const float ChargeDistance = 48;
+        private const int ChargeDelayMillis = 250;
+        private const int ExhaustDelayMillis = 550;
+        private bool IsExhausted = false;
         //walk speed
-        private const float PatrolSpeed = 0.1F;
+        private const float PatrolSpeed = 0.03F;
         //player sense 
-        private const float SenseDistance = 100;
+        private const float SenseDistance = 48;
 
         private Vector2 _location;
 
@@ -32,12 +35,12 @@ namespace TheLegendOfHilda.Enemies
         private Vector2 _targetNode;
         private int _index = 0;
 
-        public SpearEnemy(Player player, TileLocation postion, List<TileLocation> path) : base(CreateAnimations())
+        public SpearEnemy(Player player, TileLocation position, List<TileLocation> path) : base(CreateAnimations())
         {
             _player = player;
             _patrolPath = path;
             _isPatroling = path.Count > 1;
-            _location = new Vector2(_location.X + TileSize.Int / 2, _location.Y + TileSize.Int / 2);
+            _location = new Vector2(position.Position.X + TileSize.Int / 2, position.Position.Y + TileSize.Int / 2);
             if (_isPatroling)
                 _targetNode = _patrolPath[_index].Position;
         }
@@ -99,15 +102,16 @@ namespace TheLegendOfHilda.Enemies
             {
                 _currentSpeed = 0f;
                 _currentDistanceCharged = 0;
+                IsExhausted = true;
                 _currentChargeWait = new TimeSpan();
             }
-            if (_currentChargeWait.TotalMilliseconds < ChargeDelayMillis)
+            if (_currentChargeWait.TotalMilliseconds < (IsExhausted ? ChargeDelayMillis + ExhaustDelayMillis: ChargeDelayMillis))
             {
                 _currentChargeWait += delta;
                 if (_currentChargeWait.TotalMilliseconds >= ChargeDelayMillis)
                     _targetLoc = Physics.Direction(_location, _player.EnemyTrackingPosition);
             }
-            if (_currentChargeWait.TotalMilliseconds >= ChargeDelayMillis)
+            if (_currentChargeWait.TotalMilliseconds >= (IsExhausted ? ChargeDelayMillis + ExhaustDelayMillis : ChargeDelayMillis))
             {
                 _currentSpeed = Math.Min(_currentSpeed + AccelerationPerMillis * delta.Milliseconds, ChargeMaxSpeed);
                 var distance = (float)Math.Min(_currentSpeed * delta.TotalMilliseconds, ChargeDistance - _currentDistanceCharged);
