@@ -46,6 +46,7 @@ namespace TheLegendOfHilda
                 { "GiovanniTestScene", () => new GiovanniTestScene() },
                 { "Room1", () => new Room1() },
                 { "GameOver", () => new GameOver() },
+                { "Victory", () => new VictoryScene() },
             });
         }
     }

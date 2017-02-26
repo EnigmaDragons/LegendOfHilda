@@ -81,6 +81,7 @@
     <Compile Include="Scenes\Room1.cs" />
     <Compile Include="Obstacles\Door.cs" />
     <Compile Include="Scenes\TitleScene.cs" />
+    <Compile Include="Scenes\VictoryScene.cs" />
     <Compile Include="TileEngine\ITileLayer.cs" />
     <Compile Include="TileEngine\Obj.cs" />
     <Compile Include="TileEngine\Room.cs" />
@@ -98,6 +99,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Backgrounds\bg2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Backgrounds\victory1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Enemies\archer-atk-d.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
