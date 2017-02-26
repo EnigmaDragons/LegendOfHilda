@@ -19,9 +19,7 @@ namespace TheLegendOfHilda
         [STAThread]
         static void Main()
         {
-
-            using (var game = new MainGame("Title", new ScreenSize(1344, 960), 3, CreateSceneFactory(), CreateKeyboardContoller()))
-
+            using (var game = new MainGame("Victory", new ScreenSize(448 * 3, 320 * 3), 3, CreateSceneFactory(), CreateKeyboardContoller()))
                 game.Run();
         }
 
@@ -39,6 +37,7 @@ namespace TheLegendOfHilda
         {
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
+                { "OgreChestRoom", () => new OgreChestRoom() },
                 { "MainHallRoom", () => new MainHallRoom() },
                 { "EntranceRoom", () => new EntranceRoom() },
                 { "TimTestScene", () => new TimTestScene() },
@@ -48,6 +47,8 @@ namespace TheLegendOfHilda
                 { "GiovanniTestScene", () => new GiovanniTestScene() },
                 { "Room1", () => new Room1() },
                 { "GameOver", () => new GameOver() },
+                { "Victory", () => new VictoryScene() },
+                { "Credits", () => new Credits() },
             });
         }
     }
