@@ -14,7 +14,7 @@ namespace MonoDragons.Core.Engine
         //private GraphicsDeviceManager _graphicsManager;
 
         private SpriteBatch _sprites;
-        private IScene _currentScene;
+        private @string _currentScene;
 
         public MainGame(string startingViewName, ScreenSize screenSize, float scale , SceneFactory sceneFactory, IController controller)
         {

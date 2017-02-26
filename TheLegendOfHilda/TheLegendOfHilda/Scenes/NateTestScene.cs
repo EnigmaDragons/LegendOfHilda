@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TheLegendOfHilda.Scenes
 {
-    class NateTestScene : IScene
+    class NateTestScene : @string
     {
         public void Init()
         {
