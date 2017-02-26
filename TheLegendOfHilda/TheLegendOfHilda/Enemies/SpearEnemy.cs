@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Animation;
+using MonoDragons.Core.Collision;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Physics;
@@ -23,7 +24,7 @@ namespace TheLegendOfHilda.Enemies
         //walk speed
         private const float PatrolSpeed = 0.03F;
         //player sense 
-        private const float SenseDistance = 48;
+        private const float SenseDistance = 72;
 
         private Vector2 _location;
 
@@ -88,7 +89,7 @@ namespace TheLegendOfHilda.Enemies
 
             var distance = (float)PatrolSpeed * (float)delta.TotalMilliseconds;
             base.OnDirection(new Direction(Physics.Direction(_location, _targetNode)));
-            _location = Physics.MoveTowards(_location, _targetNode, distance);
+            TryToUpdatePosition(Physics.MoveTowards(_location, _targetNode, distance));
         }
 
         private float _currentSpeed = 0f;
@@ -117,8 +118,15 @@ namespace TheLegendOfHilda.Enemies
                 var distance = (float)Math.Min(_currentSpeed * delta.TotalMilliseconds, ChargeDistance - _currentDistanceCharged);
                 _currentDistanceCharged += distance;
                 base.OnDirection(new Direction(Physics.Direction(_location, _player.EnemyTrackingPosition)));
-                _location = _location + distance * _targetLoc;
+                TryToUpdatePosition(_location + distance*_targetLoc);
             }
+        }
+
+        private void TryToUpdatePosition(Vector2 proposal)
+        {
+            if (ReallyStupidPositionTracker.Instance.CanIGoHere(new AxisAlignedBoundingBox(proposal, new Vector2(boundingBox.Width, boundingBox.Height))))
+                _location = proposal;
+
         }
     }
 }

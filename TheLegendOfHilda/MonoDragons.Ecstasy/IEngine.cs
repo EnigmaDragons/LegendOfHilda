@@ -13,8 +13,6 @@ namespace MonoDragons.Ecstasy
         ElapsedGameTime Elapsed { get; }
 
         IEnumerable<IEntity> Entities<T>(T requiredComponentsMask) where T : struct;
-        T Managers<T>();
-        T Settings<T>();
         void Emit<T>(T gameEvent) where T : IEvent;
     }
 }

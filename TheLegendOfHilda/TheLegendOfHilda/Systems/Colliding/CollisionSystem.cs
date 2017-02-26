@@ -17,7 +17,7 @@ namespace TheLegendOfHilda.Systems.Colliding
     class CollisionSystem : ISystem<Keys>
     {
         public Keys RequiredComponents { get; }
-            = Keys.Position | Keys.Renderable;
+            = Keys.Position | Keys.Collideable;
 
         readonly CollisionGrid _grid;
 
@@ -36,7 +36,7 @@ namespace TheLegendOfHilda.Systems.Colliding
             EmitCollisions(engine);
         }
 
-        void Collect(IEngine engine)
+        private void Collect(IEngine engine)
         {
             foreach (var entity in engine.Entities(RequiredComponents))
             {
@@ -48,7 +48,7 @@ namespace TheLegendOfHilda.Systems.Colliding
             }
         }
 
-        void EmitCollisions(IEngine engine)
+        private void EmitCollisions(IEngine engine)
         {
             foreach (var collision in _grid.GetCollisions())
             {
