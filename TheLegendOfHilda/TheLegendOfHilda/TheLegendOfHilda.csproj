@@ -42,10 +42,12 @@
     <Compile Include="PlayerStuff\Player.cs" />
     <Compile Include="Obstacles\Striker.cs" />
     <Compile Include="PlayerControl\Player.cs" />
+    <Compile Include="PlayerStuff\PlayerAnimationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\EnemyPatrolingScene.cs" />
     <Compile Include="Scenes\BrendanTestScene.cs" />
+    <Compile Include="Scenes\EntranceRoom.cs" />
     <Compile Include="Scenes\GiovanniTestScene.cs" />
     <Compile Include="Scenes\NateTestScene.cs" />
     <Compile Include="Scenes\TimTestScene.cs" />

@@ -19,34 +19,28 @@ namespace MonoDragons.Core.Engine
         private static SpriteBatch _spriteBatch;
         private static INavigation _navigation;
         private static SceneContents _sceneContents;
-        //private static Vector2 _baseResolution;
+        private static Texture2D _rectTexture;
         private static float _scale;
-        //private static GraphicsDeviceManager _graphicsManager;
 
         public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch, float scale)
         {
-            //_graphicsDevice = graphics;
-            //_graphicsManager = manager;
-            //_baseResolution = baseResolution;
             _scale = scale;
             _game = game;
-            //_game.Window.AllowUserResizing = true;
-            //_game.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
             _content = game.Content;
             _navigation = navigation;
             _spriteBatch = spriteBatch;
+            SetupRectangleTexture(game.GraphicsDevice);
             _sceneContents = new SceneContents(_content);
             DefaultFont.Load(_content);
         }
 
-        private static void Window_ClientSizeChanged(object sender, EventArgs e)
+        private static void SetupRectangleTexture(GraphicsDevice device)
         {
-            //var x = _graphicsDevice.Viewport.Width / _baseResolution.X;
-            //var y = _graphicsDevice.Viewport.Height / _baseResolution.Y;
-            //_scale = x > y ? y : x ;
-            //_graphicsManager.PreferredBackBufferWidth = (int)Math.Round((float)_baseResolution.X * _scale);
-            //_graphicsManager.PreferredBackBufferHeight = (int)Math.Round((float)_baseResolution.Y * _scale);
-        }
+            _rectTexture = new Texture2D(device, 1, 1);
+            var data = new Color[1];
+            data[0] = Color.White;
+            _rectTexture.SetData(data);
+		}
 
         public static void PlaySound(string soundName)
         {
@@ -72,7 +66,7 @@ namespace MonoDragons.Core.Engine
             oldSceneContents.Dispose();
         }
 
-        public static void DrawBrackgroundColor(Color color)
+        public static void DrawBackgroundColor(Color color)
         {
             _game.GraphicsDevice.Clear(color);
         }
@@ -97,7 +91,7 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawRotated(string imageName, Rectangle rectPosition, float rotation)
         {
-            var origin = new Vector2(rectPosition.Center.X - rectPosition.X, rectPosition.Center.Y - rectPosition.Y);
+            var origin = new Vector2(16, 16);
             _spriteBatch.Draw(Load<Texture2D>(imageName), 
                 null, 
                 new Rectangle(ScalePoint(rectPosition.X + origin.X, rectPosition.Y + origin.Y), ScalePoint(rectPosition.Width, rectPosition.Height)), 
@@ -107,17 +101,43 @@ namespace MonoDragons.Core.Engine
                 /*Insert scale*/ new Vector2(_scale, _scale));
         }
 
+        public static void DrawCentered(string imageName)
+        {
+            var texture = Load<Texture2D>(imageName);
+            DrawCentered(imageName, new Vector2(texture.Width, texture.Height));
+        }
+
+        public static void DrawCentered(string imageName, Vector2 WidthHeight)
+        {
+            _spriteBatch.Draw(Load<Texture2D>(imageName), null, new Rectangle(ScalePoint(1344 / 2 / _scale - WidthHeight.X / 2, 960 / 2 / _scale - WidthHeight.Y / 2), ScalePoint(WidthHeight.X, WidthHeight.Y)), null, null, 0, new Vector2(_scale, _scale));
+        }
+
         public static void Draw(string imageName, Vector2 position, Rectangle sourceRectangle)
         {
-            // SCALING HACK
-            var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width * 3, sourceRectangle.Height * 3);
-            _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), position, sourceRectangle, Color.White);
+        }
+
+        public static void DrawFlipped(string imageName, Vector2 position, Rectangle sourceRectangle)
+        {
+            var destinationRect = new Rectangle((int)position.X, (int)position.Y, sourceRectangle.Width, sourceRectangle.Height);
+            _spriteBatch.Draw(Load<Texture2D>(imageName), destinationRect, sourceRectangle, Color.White, 0.0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
         }
 
         public static void DrawText(string text, Vector2 position, Color color)
         {
             _spriteBatch.DrawString(DefaultFont.Font, text, ScaleVector(position.X, position.Y), color, 0, Vector2.Zero, _scale, SpriteEffects.None, 0);
         }
+
+        public static void DrawRectangle(Rectangle rectangle, Color color)
+        {
+            _spriteBatch.Draw(_rectTexture, rectangle, color);
+        }
+
+        //public static void DrawCenter(string imageName)
+        //{
+            //var texture = 
+            //var useWidth =
+        //}
 
         public static void Publish<T>(T payload)
         {

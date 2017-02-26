@@ -25,7 +25,7 @@ namespace TheLegendOfHilda.Scenes
         public void Draw()
         {
             // render the stuff...
-            World.DrawBrackgroundColor(Color.Black);
+            World.DrawBackgroundColor(Color.Black);
             World.DrawText("Hello World", new Vector2(0, 0), Color.White);
         }
     }
