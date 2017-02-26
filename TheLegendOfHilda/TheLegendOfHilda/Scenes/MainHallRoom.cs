@@ -49,7 +49,7 @@ namespace TheLegendOfHilda.Scenes
 
         public void Draw()
         {
-            World.DrawBrackgroundColor(Color.Black);
+            World.DrawBackgroundColor(Color.Black);
             _room.Draw(new Vector2());
         }
     }

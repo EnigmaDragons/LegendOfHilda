@@ -12,7 +12,7 @@ namespace TheLegendOfHilda.Scenes
     {
         public void Draw()
         {
-            World.DrawBrackgroundColor(Color.Black);
+            World.DrawBackgroundColor(Color.Black);
             World.DrawText("Hello World", new Vector2(0, 0), Color.Yellow);
             World.DrawText("Hello World", new Vector2(100, 0), Color.Yellow);
         }

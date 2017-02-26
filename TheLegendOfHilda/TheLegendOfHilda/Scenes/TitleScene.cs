@@ -18,9 +18,15 @@ namespace TheLegendOfHilda.Scenes
 
         public void Draw()
         {
-            World.DrawBrackgroundColor(Color.Black);
-            World.Draw("Images/Backgrounds/bg 1", Vector2.Zero);
-            World.Draw("Images/Backgrounds/title1", Vector2.Zero);
+            //var screenWidth = 1344 / 3;
+            //var screenHeight = 960 / 3;
+            //var useWidth = 
+            World.DrawBackgroundColor(Color.Black);
+            World.DrawCentered("Images/Backgrounds/bg 1", new Vector2(256, 144) * new Vector2(1.6f));
+            World.DrawCentered("Images/Backgrounds/title1");
+            World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
+            //World.Draw("Images/Backgrounds/bg 1", new Rectangle((int)(1344 * 0.25), (int)(960 * 0.25), 256, 144));
+            //World.Draw("Images/Backgrounds/title1", Vector2.Zero);
         }
     }
 }
