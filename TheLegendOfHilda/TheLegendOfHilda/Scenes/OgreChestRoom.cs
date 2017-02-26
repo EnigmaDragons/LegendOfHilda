@@ -16,8 +16,6 @@ namespace TheLegendOfHilda.Scenes
 
         public void Init()
         {
-            World.PlayMusic("Music/dungeon1");
-
             _player = new Player(new Vector2(TileSize.Int * 12, TileSize.Int * 7));
 
             _room = new Room();
@@ -33,21 +31,24 @@ namespace TheLegendOfHilda.Scenes
 
             _room.Add(new TileWalker(0, 1, 0, 1).Get(x => new Tile("wallcorner", x, Rotation.Up)));
             _room.Add(new TileWalker(0, 1, 14, 1).Get(x => new Tile("wallcorner", x, Rotation.Left)));
-            _room.Add(new TileWalker(14, 1, 0, 1).Get(x => new Tile("wallcorner", x, Rotation.Right)));
-            _room.Add(new TileWalker(14, 1, 14, 1).Get(x => new Tile("wallcorner", x, Rotation.Down)));
+            _room.Add(new TileWalker(14, 1, 0, 1).Get(x => new Tile("bottomlesscorner", x, Rotation.Right)));
+            _room.Add(new TileWalker(14, 1, 14, 1).Get(x => new Tile("bottomlesscorner", x, Rotation.Down)));
 
-            _room.Add(new TileWalker(3, 9, 2, 1).Get(x => new Tile("walledge", x, Rotation.Up)));
+            _room.Add(new TileWalker(3, 8, 2, 1).Get(x => new Tile("walledge", x, Rotation.Up)));
             _room.Add(new TileWalker(2, 1, 2, 10).Get(x => new Tile("walledge", x, Rotation.Left)));
-            _room.Add(new TileWalker(12, 1, 4, 8).Get(x => new Tile("walledge", x, Rotation.Right)));
-            _room.Add(new TileWalker(2, 9, 12, 1).Get(x => new Tile("walledge", x, Rotation.Down)));
+            _room.Add(new TileWalker(12, 1, 5, 6).Get(x => new Tile("walledge", x, Rotation.Right)));
+            _room.Add(new TileWalker(2, 8, 12, 1).Get(x => new Tile("walledge", x, Rotation.Down)));
 
             _room.Add(new TileWalker(2, 1, 2, 1).Get(x => new Tile("walledgecorner", x, Rotation.Up)));
             _room.Add(new TileWalker(2, 1, 12, 1).Get(x => new Tile("walledgecorner", x, Rotation.Left)));
+            
+            _room.Add(new TileWalker(10, 1, 2, 3).Get(x => new Tile("bottomlessedge", x, Rotation.Right)));
+            _room.Add(new TileWalker(10, 1, 11, 3).Get(x => new Tile("bottomlessedge", x, Rotation.Right)));
+            _room.Add(new TileWalker(11, 3, 4, 1).Get(x => new Tile("bottomlessedge", x, Rotation.Up)));
+            _room.Add(new TileWalker(10, 3, 10, 1).Get(x => new Tile("bottomlessedge", x, Rotation.Down)));
 
             _room.Add(new Obj("chest-closed", new TileLocation(2, 7)));
             _room.Add(new Door(DoorState.Open, new TileLocation(14, 7), Rotation.Right, "MainHallRoom", _player));
-
-            
         }
 
         public void Update(TimeSpan delta)
