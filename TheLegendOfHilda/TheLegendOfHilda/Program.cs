@@ -28,7 +28,8 @@ namespace TheLegendOfHilda
             return new KeyboardController(new Map<Keys, Control>
             {
                 { Keys.Escape, Control.Quit },
-                { Keys.Enter, Control.Start }
+                { Keys.Enter, Control.Start },
+                { Keys.J, Control.B },
             });
         }
 

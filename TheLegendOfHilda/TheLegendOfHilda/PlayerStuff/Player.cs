@@ -13,6 +13,7 @@ namespace TheLegendOfHilda.PlayerStuff
             boundingBox = new AxisAlignedBoundingBox(position, new Vector2(16, 18));
             boundingBoxOffset = new Vector2(8, 9);
             Input.OnDirection(OnDirection);
+            Input.On(Control.B, OnAttack);
         }
     }
 }

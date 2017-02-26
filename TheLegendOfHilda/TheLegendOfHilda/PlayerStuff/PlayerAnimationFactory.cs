@@ -21,6 +21,12 @@ namespace TheLegendOfHilda.PlayerStuff
             animations[AnimationState.StandingLeft] = new StillFrame(@"Images\Link", new Rectangle(96, 64, 32, 32));
             ((StillFrame)animations[AnimationState.StandingLeft]).SetInverted(true);
 
+            animations[AnimationState.AttackingBackward] = new StillFrame(@"Images\Link", new Rectangle(32, 96, 32, 32));
+            animations[AnimationState.AttackingForward] = new StillFrame(@"Images\Link", new Rectangle(0, 96, 32, 32));
+            animations[AnimationState.AttackingRight] = new StillFrame(@"Images\Link", new Rectangle(64, 96, 32, 32));
+            animations[AnimationState.AttackingLeft] = new StillFrame(@"Images\Link", new Rectangle(64, 96, 32, 32));
+            ((StillFrame)animations[AnimationState.AttackingLeft]).SetInverted(true);
+
             return animations;
         }
     }
