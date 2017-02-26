@@ -19,23 +19,29 @@ namespace TheLegendOfHilda
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("EnemyPatrolling", new ScreenSize(800, 800), 2, CreateSceneFactory(), CreateKeyboardContoller()))
+            using (var game = new MainGame("EntranceRoom", new ScreenSize(1344, 960), 3, CreateSceneFactory(), CreateKeyboardContoller()))
                 game.Run();
         }
 
         private static IController CreateKeyboardContoller()
         {
-            return new KeyboardController(new Map<Keys, Control>());
+            return new KeyboardController(new Map<Keys, Control>
+            {
+                { Keys.Escape, Control.Quit },
+                { Keys.Enter, Control.Start }
+            });
         }
 
         private static SceneFactory CreateSceneFactory()
         {
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
+                { "EntranceRoom", () => new EntranceRoom() },
                 { "TimTestScene", () => new TimTestScene() },
                 { "NateTestScene", () => new NateTestScene() },
-                { "EnemyPatrolling", () => new EnemyPatrolingScene() },
                 { "BrendanTestScene", () => new BrendanTestScene() },
+                { "Title", () => new TitleScene() },
+                { "GiovanniTestScene", () => new GiovanniTestScene() },
                 { "Room1", () => new Room1() }
             });
         }

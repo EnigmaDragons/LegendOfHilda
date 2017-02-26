@@ -13,12 +13,18 @@ namespace MonoDragons.Core.Animation
         double secondsPerFrame;
         double currentSeconds = 0;
         int currentFrameDirection = 1;
+        bool isInverted = false;
 
         public BackAndForthAnimation(string texture, List<Rectangle> frames, double secondsPerFrame)
         {
             this.texture = texture;
             this.frames = frames;
             this.secondsPerFrame = secondsPerFrame;
+        }
+
+        public void SetInverted(bool isInverted)
+        {
+            this.isInverted = isInverted;
         }
 
         public void Update(TimeSpan deltaTime)
@@ -37,12 +43,17 @@ namespace MonoDragons.Core.Animation
 
         public void Draw(Vector2 position)
         {
-            World.Draw(texture, position, frames[currentFrame]);
+            if (isInverted)
+                World.DrawFlipped(texture, position, frames[currentFrame]);
+            else
+                World.Draw(texture, position, frames[currentFrame]);
         }
 
         public void Reset()
         {
             currentFrame = 0;
+            currentFrameDirection = 1;
+            currentSeconds = 0;
         }
     }
 }
