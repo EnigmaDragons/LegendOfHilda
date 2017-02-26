@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TheLegendOfHilda.Obstacles;
+using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
 
 namespace TheLegendOfHilda.Scenes
@@ -13,6 +10,7 @@ namespace TheLegendOfHilda.Scenes
     public class EntranceRoom : IScene
     {
         private Room _room;
+        private Player _player;
 
         public void Init()
         {
@@ -28,17 +26,19 @@ namespace TheLegendOfHilda.Scenes
             _room.Add(new TileWalker(15, 1, 15, 1).Get(x => new Tile("wallcorner", x, Rotation.Down)));
             _room.Add(new TileWalker(3, 2, 13, 2).Get(x => new Obj("pot", x)));
             _room.Add(new Door(DoorState.Blocked, new TileLocation(8, 1)));
+            _player = new Player(new Vector2(100, 100));
         }
 
         public void Update(TimeSpan delta)
         {
-            
+            _player.Update(delta);
         }
 
         public void Draw()
         {
             World.DrawBackgroundColor(Color.Black);
             _room.Draw(new Vector2());
+            _player.Draw();
         }
     }
 }
