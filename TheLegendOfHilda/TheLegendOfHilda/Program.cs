@@ -36,6 +36,7 @@ namespace TheLegendOfHilda
         {
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
+                { "MainHallRoom", () => new MainHallRoom() },
                 { "EntranceRoom", () => new EntranceRoom() },
                 { "TimTestScene", () => new TimTestScene() },
                 { "NateTestScene", () => new NateTestScene() },
