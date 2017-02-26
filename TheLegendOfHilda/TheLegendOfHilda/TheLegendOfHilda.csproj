@@ -75,14 +75,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\Enemies\archer-atk-d.png" />
-    <Content Include="Content\Images\Enemies\archer-atk-l.png" />
-    <Content Include="Content\Images\Enemies\archer-atk-r.png" />
-    <Content Include="Content\Images\Enemies\archer-atk-u.png" />
-    <Content Include="Content\Images\Enemies\archer-d.png" />
-    <Content Include="Content\Images\Enemies\archer-l.png" />
-    <Content Include="Content\Images\Enemies\archer-r.png" />
-    <Content Include="Content\Images\Enemies\archer-u.png" />
+    <Content Include="Content\Images\Enemies\archer-atk-d.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-atk-l.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-atk-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-atk-u.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-d.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-l.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-missile-d.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-missile-l.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-missile-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-missile-u.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Enemies\archer-u.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Backgrounds\pressenter1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
