@@ -77,15 +77,12 @@ namespace TheLegendOfHilda.PlayerStuff
             animations[currentAnimationState].Draw(position);
             if (drawDebug)
             {
-                // Bit of a hack to account for the render scale
                 var rect = new Rectangle();
-                rect.X = (int)((position.X + boundingBoxOffset.X) * World.Scale);
-                rect.Y = (int)((position.Y + boundingBoxOffset.Y) * World.Scale);
-                rect.Width = (int)(boundingBox.Width * World.Scale);
-                rect.Height = (int)(boundingBox.Height * World.Scale);
+                rect.X = (int)(position.X + boundingBoxOffset.X);
+                rect.Y = (int)(position.Y + boundingBoxOffset.Y);
+                rect.Width = (int)boundingBox.Width;
+                rect.Height = (int)boundingBox.Height;
                 World.DrawRectangle(rect, debugColor);
-                // Call this if there's no scaling
-                //World.DrawRectangle(boundingBox.ToRect(), debugColor);
             }
         }
 

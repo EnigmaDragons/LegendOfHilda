@@ -29,7 +29,7 @@ namespace TheLegendOfHilda.Scenes
         {
             World.DrawBackgroundColor(Color.Black);
             World.DrawCentered("Images/Backgrounds/bg 1", new Vector2(256, 144) * new Vector2(1.6f));
-            World.DrawCentered("Images/Backgrounds/title1");
+            World.DrawCenteredWithOffset("Images/Backgrounds/title1", new Vector2(0, -32));
 
             if (_shouldShowEnter)            
                 World.Draw("Images/Backgrounds/pressenter1", new Rectangle(120, 180, 200, 100));
