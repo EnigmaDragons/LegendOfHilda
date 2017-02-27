@@ -20,7 +20,6 @@ namespace TheLegendOfHilda.Scenes
             World.PlayMusic("Music/dungeon1");
 
             _player = new Player(new Vector2(TileSize.Int * 7, TileSize.Int * 12));
-            //_player = new Player(new Vector2(0, 0));
 
             _room = new Room();
             _room.Add(new TileWalker(0, 16, 0, 16).Get(x => new Tile("tile1", x, Rotation.Up, false)));

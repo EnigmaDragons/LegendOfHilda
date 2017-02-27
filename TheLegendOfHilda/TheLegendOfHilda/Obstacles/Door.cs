@@ -26,7 +26,9 @@ namespace TheLegendOfHilda.Obstacles
         {
             var playerLoc = new TileLocation(_player.EnemyTrackingPosition);
             if (Locations.Any(x => x.Equals(playerLoc)))
+            {
                 World.NavigateToScene(ConnectedRoom);
+            }
         }
 
         protected override string TextureName => "Images/Tiles/door-" + _state.ToString().ToLower();

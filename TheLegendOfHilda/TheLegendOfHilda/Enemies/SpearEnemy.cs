@@ -59,6 +59,10 @@ namespace TheLegendOfHilda.Enemies
                 Charge(delta);
 
             base.Update(delta);
+            
+            if (_location.X + 8 > _player.EnemyTrackingPosition.X - 8 && _location.X + 8 < _player.EnemyTrackingPosition.X + 8
+                && _location.Y + 8 > _player.EnemyTrackingPosition.Y - 8 && _location.Y + 8 < _player.EnemyTrackingPosition.Y + 8)
+                World.NavigateToScene("GameOver");
         }
 
         public void Draw(Vector2 offset)

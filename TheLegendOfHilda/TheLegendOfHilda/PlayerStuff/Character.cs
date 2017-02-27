@@ -11,7 +11,7 @@ namespace TheLegendOfHilda.PlayerStuff
 {
     public abstract class Character 
     {
-        private static bool drawDebug = true;
+        private static bool drawDebug = false;
 
         private readonly Color debugColor = new Color(256, 0, 0, 10);
         private Dictionary<AnimationState, Animation> animations;
