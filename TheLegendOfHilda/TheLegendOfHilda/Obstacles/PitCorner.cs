@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using MonoDragons.Core.Engine;
 using TheLegendOfHilda.PlayerStuff;
 using TheLegendOfHilda.TileEngine;
@@ -19,7 +20,7 @@ namespace TheLegendOfHilda.Obstacles
         protected override string TextureName => "Images/Tiles/bottomlesscorner";
         public override int Layer => 1;
 
-        public override void Update(TimeSpan delta)
+        public override async void Update(TimeSpan delta)
         {
             if (Locations.Any(x => x.Equals(new TileLocation(_player.EnemyTrackingPosition))))
                 World.NavigateToScene("GameOver");
